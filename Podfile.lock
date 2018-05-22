@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Apollo (0.8.0):
+    - Apollo/Core (= 0.8.0)
+  - Apollo/Core (0.8.0)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
+  - SkyFloatingLabelTextField (3.4.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Apollo
+  - RealmSwift
+  - SkyFloatingLabelTextField (~> 3.4.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Apollo
+    - Realm
+    - RealmSwift
+    - SkyFloatingLabelTextField
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Apollo: 66e0f52289551545adb7ecdd994e713fdbae26eb
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
+
+PODFILE CHECKSUM: e609fec4b10ed0a30e3a490293112aedd0eba6b0
+
+COCOAPODS: 1.5.2

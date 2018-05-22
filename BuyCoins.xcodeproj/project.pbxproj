@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
+		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
+		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
 		91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */; };
 		91AE11B620B3D6EB00C0A878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* ViewController.swift */; };
 		91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11B720B3D6EB00C0A878 /* Main.storyboard */; };
 		91AE11BB20B3D6EB00C0A878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */; };
 		91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */; };
+		91AE11CA20B3E22200C0A878 /* Graphik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C620B3E22200C0A878 /* Graphik-Regular.ttf */; };
+		91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */; };
+		91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */; };
+		91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */; };
+		F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyCoins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
 		91AE11B020B3D6EB00C0A878 /* BuyCoins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyCoins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91AE11B520B3D6EB00C0A878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +34,12 @@
 		91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91AE11BD20B3D6EB00C0A878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91AE11BF20B3D6EB00C0A878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91AE11C620B3E22200C0A878 /* Graphik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Regular.ttf"; sourceTree = "<group>"; };
+		91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.ttf"; sourceTree = "<group>"; };
+		91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Bold.ttf"; sourceTree = "<group>"; };
+		91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
+		9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.release.xcconfig"; sourceTree = "<group>"; };
+		D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9127E12020B439C400CCC255 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				9127E12120B439E100CCC255 /* Extensions.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		91AE11A720B3D6EB00C0A878 = {
 			isa = PBXGroup;
 			children = (
 				91AE11B220B3D6EB00C0A878 /* BuyCoins */,
 				91AE11B120B3D6EB00C0A878 /* Products */,
+				F5E781A6A909CDFB56612518 /* Pods */,
+				E54B485C1496FA5C752F3B82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +83,46 @@
 		91AE11B220B3D6EB00C0A878 /* BuyCoins */ = {
 			isa = PBXGroup;
 			children = (
+				9127E12020B439C400CCC255 /* Supporting */,
+				91AE11C520B3E20A00C0A878 /* Fonts */,
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
 				91AE11B520B3D6EB00C0A878 /* ViewController.swift */,
 				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
+				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
+				9127E12320B43EC100CCC255 /* BCTextField.swift */,
 				91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */,
 				91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */,
 				91AE11BF20B3D6EB00C0A878 /* Info.plist */,
 			);
 			path = BuyCoins;
+			sourceTree = "<group>";
+		};
+		91AE11C520B3E20A00C0A878 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */,
+				91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */,
+				91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */,
+				91AE11C620B3E22200C0A878 /* Graphik-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E54B485C1496FA5C752F3B82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5E781A6A909CDFB56612518 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */,
+				9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91AE11C220B3D6EB00C0A878 /* Build configuration list for PBXNativeTarget "BuyCoins" */;
 			buildPhases = (
+				1BB0A7932E72994F65132D90 /* [CP] Check Pods Manifest.lock */,
 				91AE11AC20B3D6EB00C0A878 /* Sources */,
 				91AE11AD20B3D6EB00C0A878 /* Frameworks */,
 				91AE11AE20B3D6EB00C0A878 /* Resources */,
+				C30520CB6DB524F8F04E6084 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,13 +185,64 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91AE11CA20B3E22200C0A878 /* Graphik-Regular.ttf in Resources */,
+				91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */,
+				91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */,
 				91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */,
 				91AE11BB20B3D6EB00C0A878 /* Assets.xcassets in Resources */,
+				91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */,
 				91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BB0A7932E72994F65132D90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuyCoins-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C30520CB6DB524F8F04E6084 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91AE11AC20B3D6EB00C0A878 /* Sources */ = {
@@ -136,7 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				91AE11B620B3D6EB00C0A878 /* ViewController.swift in Sources */,
+				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
+				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
+				9127E12220B439E100CCC255 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +395,7 @@
 		};
 		91AE11C320B3D6EB00C0A878 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +414,7 @@
 		};
 		91AE11C420B3D6EB00C0A878 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
