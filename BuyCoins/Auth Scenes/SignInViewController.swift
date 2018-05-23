@@ -18,7 +18,7 @@ class SignInViewController: UIViewController {
     var textFields = [SkyFloatingLabelTextField]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupTextFieldFonts()
+        setupTextFieldFonts()
     }
     
     func setupTextFieldFonts() {

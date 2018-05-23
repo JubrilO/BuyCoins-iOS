@@ -11,7 +11,7 @@
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
 		91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */; };
-		91AE11B620B3D6EB00C0A878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* ViewController.swift */; };
+		91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */; };
 		91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11B720B3D6EB00C0A878 /* Main.storyboard */; };
 		91AE11BB20B3D6EB00C0A878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */; };
 		91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */; };
@@ -29,7 +29,7 @@
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
 		91AE11B020B3D6EB00C0A878 /* BuyCoins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyCoins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		91AE11B520B3D6EB00C0A878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		91AE11B820B3D6EB00C0A878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91AE11BD20B3D6EB00C0A878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,9 +57,19 @@
 		9127E12020B439C400CCC255 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */,
 				9127E12120B439E100CCC255 /* Extensions.swift */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		915AFB1720B55AB200052D7B /* Auth Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */,
+				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
+			);
+			path = "Auth Scenes";
 			sourceTree = "<group>";
 		};
 		91AE11A720B3D6EB00C0A878 = {
@@ -83,14 +93,12 @@
 		91AE11B220B3D6EB00C0A878 /* BuyCoins */ = {
 			isa = PBXGroup;
 			children = (
+				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
+				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
+				915AFB1720B55AB200052D7B /* Auth Scenes */,
 				9127E12020B439C400CCC255 /* Supporting */,
 				91AE11C520B3E20A00C0A878 /* Fonts */,
-				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
-				91AE11B520B3D6EB00C0A878 /* ViewController.swift */,
-				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
-				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
 				9127E12320B43EC100CCC255 /* BCTextField.swift */,
-				91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */,
 				91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */,
 				91AE11BF20B3D6EB00C0A878 /* Info.plist */,
 			);
@@ -225,6 +233,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -233,6 +242,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -249,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91AE11B620B3D6EB00C0A878 /* ViewController.swift in Sources */,
+				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
 				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
@@ -401,10 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -420,10 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

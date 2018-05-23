@@ -3,6 +3,7 @@ PODS:
   - Apollo (0.8.0):
     - Apollo/Core (= 0.8.0)
   - Apollo/Core (0.8.0)
+  - IQKeyboardManagerSwift (6.0.3)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
   - Realm/Headers (3.5.0)
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Apollo
+  - IQKeyboardManagerSwift
   - RealmSwift
   - SkyFloatingLabelTextField (~> 3.4.1)
 
@@ -20,6 +22,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Apollo
+    - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
     - SkyFloatingLabelTextField
@@ -27,10 +30,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Apollo: 66e0f52289551545adb7ecdd994e713fdbae26eb
+  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
 
-PODFILE CHECKSUM: e609fec4b10ed0a30e3a490293112aedd0eba6b0
+PODFILE CHECKSUM: 87e9690c089fd338840cce9e0fb67cd84eb6af29
 
 COCOAPODS: 1.5.2

@@ -10,4 +10,5 @@ target 'BuyCoins' do
 	pod 'Alamofire', '~> 4.7'
 	pod 'RealmSwift'
 	pod 'Apollo'
+    pod 'IQKeyboardManagerSwift'
 end
