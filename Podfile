@@ -11,4 +11,7 @@ target 'BuyCoins' do
 	pod 'RealmSwift'
 	pod 'Apollo'
     pod 'IQKeyboardManagerSwift'
+    pod 'SwiftyJSON'
+    pod 'Locksmith'
+    
 end

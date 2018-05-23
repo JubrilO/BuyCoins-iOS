@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91165F5820B5665C007F622D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5720B5665C007F622D /* APIManager.swift */; };
+		91165F5A20B566B9007F622D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5920B566B9007F622D /* APIConstants.swift */; };
+		91165F5E20B56929007F622D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5D20B56929007F622D /* User.swift */; };
+		91165F6020B56CDE007F622D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5F20B56CDE007F622D /* Utilities.swift */; };
+		91165F6220B572FB007F622D /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F6120B572FB007F622D /* StringConstants.swift */; };
 		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
@@ -24,6 +29,11 @@
 
 /* Begin PBXFileReference section */
 		432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuyCoins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91165F5720B5665C007F622D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		91165F5920B566B9007F622D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		91165F5D20B56929007F622D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		91165F5F20B56CDE007F622D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		91165F6120B572FB007F622D /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
@@ -54,11 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91165F5B20B566C0007F622D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				91165F5720B5665C007F622D /* APIManager.swift */,
+				91165F5920B566B9007F622D /* APIConstants.swift */,
+				91165F5F20B56CDE007F622D /* Utilities.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		91165F5C20B56910007F622D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91165F5D20B56929007F622D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9127E12020B439C400CCC255 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				9127E12320B43EC100CCC255 /* BCTextField.swift */,
+				91AE11C520B3E20A00C0A878 /* Fonts */,
 				91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */,
 				9127E12120B439E100CCC255 /* Extensions.swift */,
+				91165F6120B572FB007F622D /* StringConstants.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -96,9 +127,9 @@
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
 				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
 				915AFB1720B55AB200052D7B /* Auth Scenes */,
+				91165F5C20B56910007F622D /* Model */,
+				91165F5B20B566C0007F622D /* Networking */,
 				9127E12020B439C400CCC255 /* Supporting */,
-				91AE11C520B3E20A00C0A878 /* Fonts */,
-				9127E12320B43EC100CCC255 /* BCTextField.swift */,
 				91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */,
 				91AE11BF20B3D6EB00C0A878 /* Info.plist */,
 			);
@@ -234,18 +265,22 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -259,10 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91165F5820B5665C007F622D /* APIManager.swift in Sources */,
+				91165F5A20B566B9007F622D /* APIConstants.swift in Sources */,
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
+				91165F5E20B56929007F622D /* User.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
+				91165F6020B56CDE007F622D /* Utilities.swift in Sources */,
 				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
+				91165F6220B572FB007F622D /* StringConstants.swift in Sources */,
 				9127E12220B439E100CCC255 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +451,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -427,7 +470,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
