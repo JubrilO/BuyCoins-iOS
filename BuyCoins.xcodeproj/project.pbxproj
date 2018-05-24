@@ -15,6 +15,8 @@
 		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
+		915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64120B5B4CB0040C631 /* VerifyViewController.swift */; };
+		915CB64420B5C7630040C631 /* BCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64320B5C7630040C631 /* BCError.swift */; };
 		91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */; };
 		91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */; };
 		91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11B720B3D6EB00C0A878 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
+		915CB64120B5B4CB0040C631 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		915CB64320B5C7630040C631 /* BCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCError.swift; sourceTree = "<group>"; };
 		91AE11B020B3D6EB00C0A878 /* BuyCoins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyCoins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				91165F5D20B56929007F622D /* User.swift */,
+				915CB64320B5C7630040C631 /* BCError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */,
 				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
+				915CB64120B5B4CB0040C631 /* VerifyViewController.swift */,
 			);
 			path = "Auth Scenes";
 			sourceTree = "<group>";
@@ -297,11 +303,13 @@
 				91165F5820B5665C007F622D /* APIManager.swift in Sources */,
 				91165F5A20B566B9007F622D /* APIConstants.swift in Sources */,
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
+				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				91165F5E20B56929007F622D /* User.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
 				91165F6020B56CDE007F622D /* Utilities.swift in Sources */,
 				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
+				915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */,
 				91165F6220B572FB007F622D /* StringConstants.swift in Sources */,
 				9127E12220B439E100CCC255 /* Extensions.swift in Sources */,
 			);
