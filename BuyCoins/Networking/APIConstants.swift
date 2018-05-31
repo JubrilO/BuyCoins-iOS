@@ -9,7 +9,8 @@
 import Foundation
 
 struct APIConstants {
-    static let BaseUrl = "https://5bmhbozixnjyrzvdd-mock.stoplight-proxy.io/api/v1"
-    static let AuthUrl = BaseUrl + "/tokens"
+    static let BaseUrl = "https://bitkoin-dev.herokuapp.com/api/v1"
+    static let GraphqlUrl = "https://bitkoin-dev.herokuapp.com/graphql"
+    static let AuthUrl = BaseUrl + "/tokens?buycoins=true"
     static let SignUpUrl = BaseUrl + "/users"
 }

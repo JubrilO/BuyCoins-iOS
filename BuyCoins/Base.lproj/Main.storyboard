@@ -46,19 +46,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2018 Bitkoin Africa. All rights reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBt-eM-kS6">
-                                <rect key="frame" x="82.5" y="628" width="210.5" height="11"/>
+                                <rect key="frame" x="83" y="628" width="210.5" height="11"/>
                                 <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="11"/>
                                 <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EL-Ok-qpb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="we7-ae-3YW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="706.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="681.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Otr-Qr-Q6C">
-                                                <rect key="frame" x="18" y="146" width="339" height="479.5"/>
+                                                <rect key="frame" x="18" y="126" width="339" height="474.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHZ-c2-x5o">
                                                         <rect key="frame" x="136" y="40" width="68" height="30"/>
@@ -70,13 +70,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use your Bitkoin.africa  account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NW-jE-Jyr">
-                                                        <rect key="frame" x="30" y="80" width="279" height="29"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <rect key="frame" x="30" y="80" width="279" height="24"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
                                                         <color key="textColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-CT-xMq">
-                                                        <rect key="frame" x="30" y="149" width="279" height="51"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-CT-xMq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="30" y="144" width="279" height="51"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="51" id="12m-SD-WDz"/>
@@ -96,11 +96,11 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                                 <color key="value" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=" "/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="test@email.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn5-w7-Rxh">
-                                                        <rect key="frame" x="30" y="220" width="279" height="51"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn5-w7-Rxh" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="30" y="215" width="279" height="51"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="51" id="Yyc-Ob-vgi"/>
@@ -120,21 +120,21 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                                 <color key="value" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value=" "/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="• • • • • •"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Can’t remember password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yo-sm-23E">
-                                                        <rect key="frame" x="30" y="291" width="154.5" height="12"/>
+                                                        <rect key="frame" x="30" y="286" width="154.5" height="12"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
                                                         <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fb8-GO-6l1">
-                                                        <rect key="frame" x="70" y="333" width="200" height="50"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fb8-GO-6l1">
+                                                        <rect key="frame" x="70" y="328" width="200" height="50"/>
                                                         <color key="backgroundColor" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="1Vr-kv-hT9"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="fjy-C5-faf"/>
+                                                            <constraint firstAttribute="width" constant="200" id="fjy-C5-faf"/>
                                                         </constraints>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
@@ -151,13 +151,13 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpace">
-                                                                <real key="value" value="0.5"/>
-                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onSignInButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7h9-CN-C18"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="v47-G3-RnF">
-                                                        <rect key="frame" x="30" y="413" width="279" height="26.5"/>
+                                                        <rect key="frame" x="30" y="408" width="279" height="26.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ws-5T-Y90">
                                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="26.5"/>
@@ -222,6 +222,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Otr-Qr-Q6C" secondAttribute="bottom" constant="81" id="Acc-1y-3M0"/>
+                                            <constraint firstItem="Otr-Qr-Q6C" firstAttribute="top" secondItem="we7-ae-3YW" secondAttribute="top" constant="126" id="W9T-Jb-JrQ"/>
                                             <constraint firstItem="Otr-Qr-Q6C" firstAttribute="leading" secondItem="we7-ae-3YW" secondAttribute="leading" constant="18" id="f9d-i5-i5L"/>
                                             <constraint firstAttribute="trailing" secondItem="Otr-Qr-Q6C" secondAttribute="trailing" constant="18" id="gnf-qT-Ajr"/>
                                         </constraints>
@@ -237,13 +238,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="3EL-Ok-qpb" secondAttribute="top" id="BW8-BV-T17"/>
                             <constraint firstItem="we7-ae-3YW" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" priority="250" id="FNc-i4-FSu"/>
                             <constraint firstItem="xBt-eM-kS6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QIJ-cV-3WO"/>
-                            <constraint firstItem="Otr-Qr-Q6C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="126" id="QhO-6I-gMX"/>
                             <constraint firstItem="we7-ae-3YW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="TfI-PI-sYX"/>
                             <constraint firstItem="fPa-g4-Ay0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZVk-l8-FAv"/>
                             <constraint firstAttribute="bottom" secondItem="3EL-Ok-qpb" secondAttribute="bottom" id="eA9-T5-0lJ"/>
-                            <constraint firstItem="3EL-Ok-qpb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="h17-Zm-T6S"/>
                             <constraint firstItem="fPa-g4-Ay0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i7H-6l-SZH"/>
                             <constraint firstItem="3EL-Ok-qpb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lcV-Aw-jEN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="HHs-Tp-QPj" secondAttribute="top" constant="-41" id="nI8-0H-Y7b"/>
@@ -254,6 +254,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="Otr-Qr-Q6C" id="7F2-QV-kXW"/>
                         <outlet property="emailTextField" destination="fsJ-CT-xMq" id="9F2-d0-myD"/>
                         <outlet property="passwordTextField" destination="Dn5-w7-Rxh" id="SjU-k8-PfD"/>
                         <outlet property="signInButton" destination="fb8-GO-6l1" id="lfZ-hT-ihZ"/>
@@ -289,7 +290,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2018 Bitkoin Africa. All rights reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTY-xq-by5">
-                                <rect key="frame" x="83.5" y="961" width="210.5" height="11"/>
+                                <rect key="frame" x="83" y="961" width="210.5" height="11"/>
                                 <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="11"/>
                                 <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -636,7 +637,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZP-Ja-1DC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="595" y="274"/>
+            <point key="canvasLocation" x="559" y="125"/>
         </scene>
         <!--Verify View Controller-->
         <scene sceneID="Exz-IK-a8V">
@@ -695,22 +696,22 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-13" translatesAutoresizingMaskIntoConstraints="NO" id="GjX-fC-LDr">
-                                        <rect key="frame" x="64" y="168.5" width="211" height="24"/>
+                                        <rect key="frame" x="64" y="168.5" width="211" height="26.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn’t get the link?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNx-0b-h88">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w88-ql-rCL">
-                                                <rect key="frame" x="99" y="0.0" width="112" height="24"/>
+                                                <rect key="frame" x="99" y="0.0" width="112" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Resend Email">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="12" name="Graphik-Medium"/>
+                                                                <font key="NSFont" metaFont="cellTitle"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -770,6 +771,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cX-qa-2Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1332" y="124.58770614692655"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5ub-h0-l0l">
+            <objects>
+                <viewController id="4P6-lh-CfY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tig-c1-1KK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="luG-5D-hOv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Abt-zC-JHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167" y="125"/>
         </scene>
     </scenes>
     <resources>

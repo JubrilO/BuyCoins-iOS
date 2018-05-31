@@ -13,13 +13,14 @@ import RealmSwift
 
 class Utilities {
     
-    class func saveTokenFromJSON(json: JSON) {
+    class func saveTokenFromJSON(json: JSON) -> String? {
         if let token =  json["token"].string {
             let tokenDict = ["token" : token]
             try! Locksmith.saveData(data: tokenDict, forUserAccount: Constants.BCUser)
+            return nil
         }
         else {
-            
+            return json["error_message"].string
         }
     }
     
@@ -31,7 +32,7 @@ class Utilities {
             return (user, nil)
         }
         else {
-            return (nil, StringError(""))
+            return (nil, StringError(json["error_message"].stringValue))
         }
     }
     

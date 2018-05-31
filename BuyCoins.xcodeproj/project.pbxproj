@@ -12,11 +12,15 @@
 		91165F5E20B56929007F622D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5D20B56929007F622D /* User.swift */; };
 		91165F6020B56CDE007F622D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5F20B56CDE007F622D /* Utilities.swift */; };
 		91165F6220B572FB007F622D /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F6120B572FB007F622D /* StringConstants.swift */; };
+		91165F6420B83EAB007F622D /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91165F6320B83EAB007F622D /* Landing.storyboard */; };
 		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
+		915385E120BD648200F1488C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915385E020BD648200F1488C /* OverviewViewController.swift */; };
+		915385E520BEDEDF00F1488C /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 915385E420BEDEDF00F1488C /* schema.json */; };
 		915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64120B5B4CB0040C631 /* VerifyViewController.swift */; };
 		915CB64420B5C7630040C631 /* BCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64320B5C7630040C631 /* BCError.swift */; };
+		91A089CC20BEECAE0077892D /* Dashboard.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 91A089CB20BEECAE0077892D /* Dashboard.graphql */; };
 		91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */; };
 		91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */; };
 		91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11B720B3D6EB00C0A878 /* Main.storyboard */; };
@@ -36,11 +40,15 @@
 		91165F5D20B56929007F622D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		91165F5F20B56CDE007F622D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		91165F6120B572FB007F622D /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		91165F6320B83EAB007F622D /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
+		915385E020BD648200F1488C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		915385E420BEDEDF00F1488C /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		915CB64120B5B4CB0040C631 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		915CB64320B5C7630040C631 /* BCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCError.swift; sourceTree = "<group>"; };
+		91A089CB20BEECAE0077892D /* Dashboard.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dashboard.graphql; sourceTree = "<group>"; };
 		91AE11B020B3D6EB00C0A878 /* BuyCoins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyCoins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -90,13 +98,30 @@
 		9127E12020B439C400CCC255 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				9127E12320B43EC100CCC255 /* BCTextField.swift */,
 				91AE11C520B3E20A00C0A878 /* Fonts */,
 				91AE11BA20B3D6EB00C0A878 /* Assets.xcassets */,
+				9127E12320B43EC100CCC255 /* BCTextField.swift */,
 				9127E12120B439E100CCC255 /* Extensions.swift */,
 				91165F6120B572FB007F622D /* StringConstants.swift */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		915385DF20BD644500F1488C /* Landing Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91165F6320B83EAB007F622D /* Landing.storyboard */,
+				915385E020BD648200F1488C /* OverviewViewController.swift */,
+			);
+			path = "Landing Scenes";
+			sourceTree = "<group>";
+		};
+		915385E320BEDE8000F1488C /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				91A089CB20BEECAE0077892D /* Dashboard.graphql */,
+			);
+			path = GraphQL;
 			sourceTree = "<group>";
 		};
 		915AFB1720B55AB200052D7B /* Auth Scenes */ = {
@@ -132,7 +157,10 @@
 			children = (
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
 				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
+				915385E420BEDEDF00F1488C /* schema.json */,
 				915AFB1720B55AB200052D7B /* Auth Scenes */,
+				915385E320BEDE8000F1488C /* GraphQL */,
+				915385DF20BD644500F1488C /* Landing Scenes */,
 				91165F5C20B56910007F622D /* Model */,
 				91165F5B20B566C0007F622D /* Networking */,
 				9127E12020B439C400CCC255 /* Supporting */,
@@ -178,6 +206,7 @@
 			buildConfigurationList = 91AE11C220B3D6EB00C0A878 /* Build configuration list for PBXNativeTarget "BuyCoins" */;
 			buildPhases = (
 				1BB0A7932E72994F65132D90 /* [CP] Check Pods Manifest.lock */,
+				915385E220BEDAA200F1488C /* Generate Apollo GraphQL API */,
 				91AE11AC20B3D6EB00C0A878 /* Sources */,
 				91AE11AD20B3D6EB00C0A878 /* Frameworks */,
 				91AE11AE20B3D6EB00C0A878 /* Resources */,
@@ -231,11 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				91AE11CA20B3E22200C0A878 /* Graphik-Regular.ttf in Resources */,
+				915385E520BEDEDF00F1488C /* schema.json in Resources */,
 				91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */,
 				91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */,
 				91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */,
 				91AE11BB20B3D6EB00C0A878 /* Assets.xcassets in Resources */,
 				91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */,
+				91165F6420B83EAB007F622D /* Landing.storyboard in Resources */,
+				91A089CC20BEECAE0077892D /* Dashboard.graphql in Resources */,
 				91AE11B920B3D6EB00C0A878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +293,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		915385E220BEDAA200F1488C /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swiftAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+		};
 		C30520CB6DB524F8F04E6084 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,22 +316,26 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +357,7 @@
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				91165F5E20B56929007F622D /* User.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
+				915385E120BD648200F1488C /* OverviewViewController.swift in Sources */,
 				91165F6020B56CDE007F622D /* Utilities.swift in Sources */,
 				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
 				915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */,
@@ -456,6 +507,7 @@
 			baseConfigurationReference = D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
@@ -463,8 +515,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.buycoinss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -475,6 +528,7 @@
 			baseConfigurationReference = 9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E5H7W73394;
 				INFOPLIST_FILE = BuyCoins/Info.plist;
@@ -482,8 +536,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.BuyCoins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitkoin.buycoinss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

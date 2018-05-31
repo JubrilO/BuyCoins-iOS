@@ -1,0 +1,8 @@
+query CryptoPriceIndex($period: CryptoPeriodTypes, $cryptocurrency: Cryptocurrency) {
+    cryptoPriceIndex(period: $period, cryptocurrency: $cryptocurrency) {
+        values {
+            date
+            rate
+        }
+    }
+}

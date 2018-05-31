@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func onSignInButtonTap() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     func setupTextFieldFonts() {

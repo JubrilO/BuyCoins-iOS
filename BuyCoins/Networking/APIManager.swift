@@ -35,15 +35,19 @@ class APIManager {
     }
     
     func signInUser(email: String, password: String, completionHandler: @escaping (Bool, Error?) -> ()) {
-        let parameters = [String : Any]()
+        let parameters = ["email": email, "password" : password, "recaptcha_response" : "buycoins", "signed_in_with" : "buycoins"]
         Alamofire.request(APIConstants.SignUpUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                Utilities.saveTokenFromJSON(json: json)
-                completionHandler()
+                if let error = Utilities.saveTokenFromJSON(json: json) {
+                    completionHandler(true, StringError(error))
+                }
+                else {
+                    completionHandler(true, nil)
+                }
             case .failure(let error):
                 completionHandler(true, error)
             }

@@ -9,9 +9,11 @@ target 'BuyCoins' do
 	pod 'SkyFloatingLabelTextField', '~> 3.4.1'
 	pod 'Alamofire', '~> 4.7'
 	pod 'RealmSwift'
+    pod 'Charts'
 	pod 'Apollo'
     pod 'IQKeyboardManagerSwift'
     pod 'SwiftyJSON'
     pod 'Locksmith'
+    pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     
 end
