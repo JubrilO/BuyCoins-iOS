@@ -30,6 +30,7 @@
 		91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */; };
 		91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */; };
 		91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */; };
+		91C5B4FC20C1B9F900B97F32 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5B4FB20C1B9F900B97F32 /* API.swift */; };
 		F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.ttf"; sourceTree = "<group>"; };
 		91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Bold.ttf"; sourceTree = "<group>"; };
 		91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
+		91C5B4FB20C1B9F900B97F32 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.release.xcconfig"; sourceTree = "<group>"; };
 		D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 		91AE11B220B3D6EB00C0A878 /* BuyCoins */ = {
 			isa = PBXGroup;
 			children = (
+				91C5B4FB20C1B9F900B97F32 /* API.swift */,
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
 				91AE11B720B3D6EB00C0A878 /* Main.storyboard */,
 				915385E420BEDEDF00F1488C /* schema.json */,
@@ -356,6 +359,7 @@
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				91165F5E20B56929007F622D /* User.swift in Sources */,
+				91C5B4FC20C1B9F900B97F32 /* API.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
 				915385E120BD648200F1488C /* OverviewViewController.swift in Sources */,
 				91165F6020B56CDE007F622D /* Utilities.swift in Sources */,
