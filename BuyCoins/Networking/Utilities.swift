@@ -16,7 +16,7 @@ class Utilities {
     class func saveTokenFromJSON(json: JSON) -> String? {
         if let token =  json["token"].string {
             let tokenDict = ["token" : token]
-            try! Locksmith.saveData(data: tokenDict, forUserAccount: Constants.BCUser)
+            try! Locksmith.updateData(data: tokenDict, forUserAccount: Constants.BCUser)
             return nil
         }
         else {
@@ -38,7 +38,7 @@ class Utilities {
     
     private class func saveTokenToLocksmith(token: String) {
         let tokenDict = ["token" : token]
-        try! Locksmith.saveData(data: tokenDict, forUserAccount: Constants.BCUser)
+        try! Locksmith.updateData(data: tokenDict, forUserAccount: Constants.BCUser)
     }
     
     private class func parseErrorFromJSON(json: JSON) {

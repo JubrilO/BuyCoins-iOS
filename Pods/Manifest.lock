@@ -6,6 +6,7 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - FSPagerView (0.7.1)
   - IQKeyboardManagerSwift (6.0.3)
   - Locksmith (4.0.0)
   - Realm (3.5.0):
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Apollo
   - Charts
+  - FSPagerView
   - IQKeyboardManagerSwift
   - Locksmith
   - RealmSwift
@@ -33,6 +35,7 @@ SPEC REPOS:
     - Alamofire
     - Apollo
     - Charts
+    - FSPagerView
     - IQKeyboardManagerSwift
     - Locksmith
     - Realm
@@ -54,6 +57,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Apollo: 66e0f52289551545adb7ecdd994e713fdbae26eb
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
@@ -62,6 +66,6 @@ SPEC CHECKSUMS:
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: cb0779376932a3375a041c6a3eab4e41355bb4ee
+PODFILE CHECKSUM: 07bb715500d9ccf24f2a1565de757e4b1a54f135
 
 COCOAPODS: 1.5.2

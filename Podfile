@@ -10,6 +10,7 @@ target 'BuyCoins' do
 	pod 'Alamofire', '~> 4.7'
 	pod 'RealmSwift'
     pod 'Charts'
+    pod 'FSPagerView'
 	pod 'Apollo'
     pod 'IQKeyboardManagerSwift'
     pod 'SwiftyJSON'

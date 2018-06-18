@@ -10,4 +10,13 @@ import Foundation
 
 struct Constants {
     static let BCUser = "BCUser"
+    
+    struct StoryboardIDs {
+        static let LandingTabBar = "LandingTabBar"
+    }
+    
+    struct CellIdentifiers {
+        static let WalletPagerCell = "WalletPagerCell"
+        static let WalletTransactionCell = "WalletTransactionCell"
+    }
 }

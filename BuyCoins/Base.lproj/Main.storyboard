@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2018 Bitkoin Africa. All rights reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBt-eM-kS6">
-                                <rect key="frame" x="83" y="628" width="210.5" height="11"/>
+                                <rect key="frame" x="82.5" y="628" width="210.5" height="11"/>
                                 <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="11"/>
                                 <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -113,14 +113,14 @@
                                                                 <color key="value" red="0.61568627450000002" green="0.61568627450000002" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Enter password"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter passsword"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Enter password"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                                                 <color key="value" red="0.61568627450980395" green="0.61568627450980395" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                                 <color key="value" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="• • • • • •"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="•  •  •  •  •  •"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Can’t remember password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yo-sm-23E">

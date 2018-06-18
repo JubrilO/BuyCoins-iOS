@@ -36,7 +36,7 @@ class APIManager {
     
     func signInUser(email: String, password: String, completionHandler: @escaping (Bool, Error?) -> ()) {
         let parameters = ["email": email, "password" : password, "recaptcha_response" : "buycoins", "signed_in_with" : "buycoins"]
-        Alamofire.request(APIConstants.SignUpUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(APIConstants.AuthUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             
             switch response.result {

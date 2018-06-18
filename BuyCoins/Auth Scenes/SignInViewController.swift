@@ -11,7 +11,7 @@ import SkyFloatingLabelTextField
 import SwiftValidator
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
@@ -66,9 +66,16 @@ class SignInViewController: UIViewController {
         signInButton.setAttributedTitle(NSAttributedString(string: "Sign In"), for: .normal)
         signInButton.titleLabel?.textColor = UIColor.white
         signInButton.letterSpace = 0.5
-
+        
     }
-
+    
+    func presentLandingScreen() {
+        let landingStoryboard = UIStoryboard(name: "Landing", bundle: nil)
+        if let tabBarVC = landingStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.LandingTabBar) as? UITabBarController{
+            self.present(tabBarVC, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension SignInViewController: ValidationDelegate {
@@ -85,7 +92,7 @@ extension SignInViewController: ValidationDelegate {
             else {
                 self.hideActivityIndicator()
                 print("Signed in presenting home screen")
-                self.displayErrorModal(error: error?.localizedDescription)
+                self.presentLandingScreen()
             }
         }
     }

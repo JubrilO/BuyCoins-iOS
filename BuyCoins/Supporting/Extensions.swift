@@ -9,6 +9,63 @@
 import Foundation
 import UIKit
 
+extension UIColor {
+    
+    @nonobjc class var bcGrey: UIColor {
+        return UIColor(white: 197.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var bcPurple: UIColor {
+        return UIColor(red: 150.0 / 255.0, green: 111.0 / 255.0, blue: 219.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var coolGrey: UIColor {
+        return UIColor(red: 157.0 / 255.0, green: 157.0 / 255.0, blue: 163.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var bcLightGrey: UIColor {
+        return UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 0.8)
+    }
+    
+}
+
+extension Double {
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        return numberFormatter.string(from: NSNumber(value:self.rounded()))!
+    }
+    
+    mutating func roundToPlaces(_ places : Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self.rounded() * divisor) / divisor
+    }
+    
+    func formatPoints() -> String {
+        var thousandNum = self / 1_000
+        var millionNum = self / 1_000_000
+        if  self >= 1_000 && self < 1_000_000 {
+            if  floor(thousandNum) == thousandNum {
+                return("\(Int(thousandNum))k")
+            }
+            return("\(thousandNum.roundToPlaces(2))k")
+        }
+        if  self > 1_000_000 {
+            if  floor(millionNum) == millionNum {
+                return "\(Int(thousandNum))k"
+            }
+            return "\(millionNum.roundToPlaces(2))M"
+        }
+        else{
+            if  floor(self) == self {
+                return "\(Int(self))"
+            }
+            return "\(self)"
+        }
+    }
+}
+
+
 
 extension UIButton {
     
@@ -50,6 +107,22 @@ extension UIFont {
     class var textFieldTitleFont: UIFont {
         return UIFont(name: "Graphik-Regular", size: 12.0)!
     }
+    
+    class var graphLabelFont: UIFont {
+        return UIFont(name: "Graphik-Regular", size: 11.0)!
+    }
+    
+    class func bcFontRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Graphik-Regular", size: size)!
+    }
+    
+    class func bcFontMedium(size: CGFloat) -> UIFont {
+        return UIFont(name: "Graphik-Medium", size: size)!
+    }
+    
+    class func bcFontBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Graphik-Medium", size: size)!
+    }
 }
 
 extension UIViewController {
@@ -59,6 +132,12 @@ extension UIViewController {
         let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func setupNavBarImage() {
+        self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logoSmall"))
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
 
