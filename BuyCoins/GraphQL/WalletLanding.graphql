@@ -1,0 +1,44 @@
+# Try to write your query here
+query WalletTransactions($last: Int = 30, $cryptocurrency: Cryptocurrency! ) {
+    
+    cryptoPriceIndex(period: current, cryptocurrency: $cryptocurrency) {
+        values {
+            rate
+            date
+        }
+    }
+    
+    currentUser {
+        wallet(cryptocurrency: $cryptocurrency){
+            confirmedBalance
+            unconfirmedBalance
+            updatedAt
+            cryptocurrency
+        }
+        
+        cryptoTransactions(last: $last, cryptocurrency: $cryptocurrency) {
+            edges {
+                node {
+                    amount
+                    createdAt
+                    direction
+                    type
+                    confirmed
+                    cryptocurrency
+                }
+            }
+        }
+    }
+}
+
+query WalletBalance {
+    currentUser {
+        wallets {
+            confirmedBalance
+            unconfirmedBalance
+            updatedAt
+            cryptocurrency
+        }
+    }
+}
+

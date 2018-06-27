@@ -13,6 +13,14 @@ struct Constants {
     
     struct StoryboardIDs {
         static let LandingTabBar = "LandingTabBar"
+        static let SignInScene = "SignInScene"
+        static let SignUpScene = "SignUpScene"
+        static let SendCoinScene = "SendCoinScene"
+    }
+    
+    struct StoryboardNames {
+        static let Landing = "Landing"
+        static let Auth = "Auth"
     }
     
     struct CellIdentifiers {

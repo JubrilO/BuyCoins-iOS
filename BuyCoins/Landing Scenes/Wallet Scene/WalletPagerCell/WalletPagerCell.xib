@@ -13,11 +13,11 @@
         <array key="Graphik-Bold.ttf">
             <string>Graphik-Bold</string>
         </array>
-        <array key="Graphik-Medium.ttf">
-            <string>Graphik-Medium</string>
-        </array>
         <array key="Graphik-Regular.ttf">
             <string>Graphik-Regular</string>
+        </array>
+        <array key="graphik-medium-webfont.ttf">
+            <string>Graphik-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -28,13 +28,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="904-Em-HTM">
-                    <rect key="frame" x="144.5" y="157" width="87.5" height="17"/>
+                    <rect key="frame" x="144.5" y="157" width="87.5" height="23.5"/>
                     <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ibw-KG-SYU">
-                    <rect key="frame" x="109.5" y="192" width="157" height="28"/>
+                    <rect key="frame" x="109.5" y="198.5" width="157" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.3355" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-ta-9AO">
                             <rect key="frame" x="0.0" y="0.0" width="98.5" height="28"/>
@@ -51,7 +51,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,567,890.05 NGN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHY-Qd-xbe">
-                    <rect key="frame" x="126.5" y="226" width="123" height="14"/>
+                    <rect key="frame" x="126.5" y="232.5" width="123" height="19.5"/>
                     <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
                     <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="0.5" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

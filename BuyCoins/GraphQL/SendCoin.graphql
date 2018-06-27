@@ -1,0 +1,5 @@
+mutation SendCoin($amount: BigDecimal, $cryptocurrency: Cryptocurrency, $address: String!, $otp: String ) {
+    sendCoins(amount: $amount, cryptocurrency: $cryptocurrency, address: $address, otp: $otp) {
+        initiated
+    }
+}

@@ -32,8 +32,17 @@ extension UIColor {
 extension Double {
     func withCommas() -> String {
         let numberFormatter = NumberFormatter()
+        numberFormatter.locale = .current
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        return numberFormatter.string(from: NSNumber(value:self.rounded()))!
+        if floor(self) == self {
+            numberFormatter.minimumFractionDigits = 0
+        }
+        else {
+            numberFormatter.minimumFractionDigits = 2
+        }
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.usesGroupingSeparator = true
+        return numberFormatter.string(from: NSNumber(value:self))!
     }
     
     mutating func roundToPlaces(_ places : Int) -> Double {

@@ -41,6 +41,7 @@ class OverviewViewController: UIViewController {
             return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
         }
         else {
+            print("Sign in user")
             return ApolloClient(url: url)
         }
     }()
@@ -128,7 +129,7 @@ class OverviewViewController: UIViewController {
     
     func fetchGraphPrices(period: CryptoPeriodTypes = .month, cryptoCurrency: Cryptocurrency) {
         let priceQuery = CryptoPriceIndexQuery(period: period, cryptocurrency: cryptoCurrency)
-        apollo.fetch(query: priceQuery) { result, error in
+        apollo.fetch(query: priceQuery, cachePolicy: .returnCacheDataAndFetch) { result, error in
             if let error = error {
                 print(error)
                 self.displayErrorModal(error: error.localizedDescription)
@@ -146,7 +147,7 @@ class OverviewViewController: UIViewController {
     
     func updateCurrentPrice(_ cryptoCurrency: Cryptocurrency = Cryptocurrency.bitcoin) {
         let priceQuery = CryptoPriceIndexQuery(period: CryptoPeriodTypes.current, cryptocurrency: cryptoCurrency)
-        apollo.fetch(query: priceQuery) { result, error in
+        apollo.fetch(query: priceQuery, cachePolicy: .returnCacheDataAndFetch) { result, error in
             if let error = error {
                 print(error)
                 self.displayErrorModal(error: error.localizedDescription)
@@ -174,7 +175,7 @@ class OverviewViewController: UIViewController {
     
     func fetchWalletData() {
         let walletQuery = WalletQuery()
-        apollo.fetch(query: walletQuery) { result, error in
+        apollo.fetch(query: walletQuery, cachePolicy: .returnCacheDataAndFetch) { result, error in
             if let error = error {
                 print(error)
                 self.displayErrorModal(error: error.localizedDescription)
@@ -227,7 +228,7 @@ class OverviewViewController: UIViewController {
     
     func getCurrentCryptoPrice(coin: Cryptocurrency, completionHandler: @escaping (Double?, Error?) -> ()) {
         let priceQuery = CryptoPriceIndexQuery(period: CryptoPeriodTypes.current, cryptocurrency: .bitcoin)
-        apollo.fetch(query: priceQuery) { result, error in
+        apollo.fetch(query: priceQuery, cachePolicy: .returnCacheDataAndFetch) { result, error in
             if let error = error {
                 print(error)
                 self.displayErrorModal(error: error.localizedDescription)

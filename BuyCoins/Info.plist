@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Graphik-Bold.ttf</string>
+		<string>graphik-medium-webfont.ttf</string>
+		<string>graphik-semibold-webfont.ttf</string>
+		<string>Graphik-Regular.ttf</string>
+		<string>Graphik-Light.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
