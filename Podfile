@@ -3,7 +3,7 @@
 
 target 'BuyCoins' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
   # Pods for BuyCoins
 	pod 'SkyFloatingLabelTextField', '~> 3.4.1'
@@ -15,6 +15,8 @@ target 'BuyCoins' do
     pod 'IQKeyboardManagerSwift'
     pod 'SwiftyJSON'
     pod 'Locksmith'
+    pod 'QRCode'
+    pod 'QRCodeReader.swift', '~> 8.2.0'
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     
 end

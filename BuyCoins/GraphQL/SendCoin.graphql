@@ -3,3 +3,10 @@ mutation SendCoin($amount: BigDecimal, $cryptocurrency: Cryptocurrency, $address
         initiated
     }
 }
+
+query NetworkFee($amount: BigDecimal!, $address: String!, $cryptocurrency: Cryptocurrency) {
+    getEstimatedNetworkFee(amount: $amount, address: $address, cryptocurrency: $cryptocurrency) {
+        estimatedFee
+        total
+    }
+}

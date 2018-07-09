@@ -31,9 +31,10 @@ query WalletTransactions($last: Int = 30, $cryptocurrency: Cryptocurrency! ) {
     }
 }
 
-query WalletBalance {
+
+query WalletBalance($cryptocurrency: Cryptocurrency!) {
     currentUser {
-        wallets {
+        wallet(cryptocurrency: $cryptocurrency){
             confirmedBalance
             unconfirmedBalance
             updatedAt
@@ -41,4 +42,6 @@ query WalletBalance {
         }
     }
 }
+
+
 

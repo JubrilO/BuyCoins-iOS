@@ -81,12 +81,16 @@ class WalletViewController: UIViewController {
     @IBAction func onSegmentSelection(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
+            currentWalletType = .bitcoin
             fetchWalletDetails(cryptoCurrency: .bitcoin)
         case 1:
+            currentWalletType = .ethereum
             fetchWalletDetails(cryptoCurrency: .ethereum)
         case 2:
+            currentWalletType = .litecoin
             fetchWalletDetails(cryptoCurrency: .litecoin)
         case 3:
+            currentWalletType = .bitcoinCash
             fetchWalletDetails(cryptoCurrency: .bitcoinCash)
         default:
             break
@@ -96,33 +100,26 @@ class WalletViewController: UIViewController {
     }
     
     @IBAction func onRecieveButtonTap(_ sender: UIButton) {
+        let transferStoryboard = UIStoryboard(name: Constants.StoryboardNames.Transfer, bundle: nil)
+        if let walletAddressVC = transferStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.WalletAddressScene) as? WalletAddressViewController {
+            walletAddressVC.cryptocurrency = currentWalletType
+            present(walletAddressVC, animated: true)
+        }
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {
-    }
-    
-    
-    func fetchWalletBalance() {
-        let walletBalanceQuery = WalletBalanceQuery()
-        apollo.fetch(query: walletBalanceQuery, cachePolicy: .returnCacheDataAndFetch) {
-            result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                self.displayErrorModal(error: error.localizedDescription)
-            }
-            guard let wallets = result?.data?.currentUser?.wallets else {
-                print("could not retrieve wallets")
-                return
-            }
-            if let walletss = wallets as? [WalletBalanceQuery.Data.CurrentUser.Wallet] {
-                self.wallets = walletss
-            }
+        let transferStoryboard = UIStoryboard(name: Constants.StoryboardNames.Transfer, bundle: nil)
+        if let sendCoinVC = transferStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.SendCoinScene) as? SendCoinViewController {
+            sendCoinVC.cryptocurrency = currentWalletType
+            guard let cryptoNairaPrice = Double(walletData?.cryptoPriceIndex?.values?.first??.rate ?? "0") else { return }
+            sendCoinVC.cryptoNairaPrice = cryptoNairaPrice
+            present(sendCoinVC, animated: true)
         }
     }
     
     func fetchWalletDetails(cryptoCurrency: Cryptocurrency) {
         let walletDetailsQuery = WalletTransactionsQuery(cryptocurrency: cryptoCurrency)
-        apollo.fetch(query: walletDetailsQuery, cachePolicy: .returnCacheDataAndFetch) {
+        apollo.fetch(query: walletDetailsQuery) {
             result, error in
             if let error = error {
                 print(error)

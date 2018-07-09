@@ -1,0 +1,6 @@
+query WalletAddress($cryptocurrency: Cryptocurrency) {
+    getAddress(cryptocurrency: $cryptocurrency){
+        address
+        cryptocurrency
+    }
+}

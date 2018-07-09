@@ -19,9 +19,15 @@
 		91165F6020B56CDE007F622D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5F20B56CDE007F622D /* Utilities.swift */; };
 		91165F6220B572FB007F622D /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F6120B572FB007F622D /* StringConstants.swift */; };
 		91165F6420B83EAB007F622D /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91165F6320B83EAB007F622D /* Landing.storyboard */; };
+		912733A320E490F9008D7A7A /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912733A220E490F9008D7A7A /* ApolloManager.swift */; };
+		912733A520E4B205008D7A7A /* ReviewSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912733A420E4B205008D7A7A /* ReviewSendViewController.swift */; };
 		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
+		91392ED020E59DE1006FCE4B /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ECF20E59DE1006FCE4B /* TransferRequest.swift */; };
+		91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */; };
+		91392ED420E6E15E006FCE4B /* WalletAddress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 91392ED320E6E15E006FCE4B /* WalletAddress.graphql */; };
+		914E7D3E20EF62ED000976C5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */; };
 		915385E120BD648200F1488C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915385E020BD648200F1488C /* OverviewViewController.swift */; };
 		915385E520BEDEDF00F1488C /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 915385E420BEDEDF00F1488C /* schema.json */; };
 		915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64120B5B4CB0040C631 /* VerifyViewController.swift */; };
@@ -42,6 +48,8 @@
 		91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */; };
 		91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */; };
 		91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */; };
+		91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */; };
+		91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */; };
 		F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,9 +67,15 @@
 		91165F5F20B56CDE007F622D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		91165F6120B572FB007F622D /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		91165F6320B83EAB007F622D /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
+		912733A220E490F9008D7A7A /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
+		912733A420E4B205008D7A7A /* ReviewSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSendViewController.swift; sourceTree = "<group>"; };
 		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
+		91392ECF20E59DE1006FCE4B /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
+		91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddressViewController.swift; sourceTree = "<group>"; };
+		91392ED320E6E15E006FCE4B /* WalletAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WalletAddress.graphql; sourceTree = "<group>"; };
+		914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		915385E020BD648200F1488C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		915385E420BEDEDF00F1488C /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		915CB64120B5B4CB0040C631 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +98,8 @@
 		91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.ttf"; sourceTree = "<group>"; };
 		91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Bold.ttf"; sourceTree = "<group>"; };
 		91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
+		91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressValidator.swift; sourceTree = "<group>"; };
+		91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCryptoAddress.swift; sourceTree = "<group>"; };
 		9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.release.xcconfig"; sourceTree = "<group>"; };
 		D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +149,7 @@
 				91165F5720B5665C007F622D /* APIManager.swift */,
 				91165F5920B566B9007F622D /* APIConstants.swift */,
 				91165F5F20B56CDE007F622D /* Utilities.swift */,
+				912733A220E490F9008D7A7A /* ApolloManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -154,6 +171,9 @@
 				9127E12320B43EC100CCC255 /* BCTextField.swift */,
 				9127E12120B439E100CCC255 /* Extensions.swift */,
 				91165F6120B572FB007F622D /* StringConstants.swift */,
+				91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */,
+				91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */,
+				914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -174,6 +194,8 @@
 				91A089CB20BEECAE0077892D /* Dashboard.graphql */,
 				910A806620D2A6AB00A63C9F /* WalletLanding.graphql */,
 				9164C81A20E26B590055C98A /* SendCoin.graphql */,
+				915AFB1720B55AB200052D7B /* Auth Scenes */,
+				91392ED320E6E15E006FCE4B /* WalletAddress.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -192,8 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				915E5CA120E0A25E001967A8 /* Transfer.storyboard */,
+				91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */,
+				912733A420E4B205008D7A7A /* ReviewSendViewController.swift */,
 				915E5CA420E0A2AC001967A8 /* SendCoinViewController.swift */,
 				9164C81820E0ACC70055C98A /* BCBorderedTextField.swift */,
+				91392ECF20E59DE1006FCE4B /* TransferRequest.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -224,7 +249,6 @@
 				91AE11B720B3D6EB00C0A878 /* Auth.storyboard */,
 				915385E420BEDEDF00F1488C /* schema.json */,
 				915E5CA320E0A26B001967A8 /* Transfer */,
-				915AFB1720B55AB200052D7B /* Auth Scenes */,
 				915385E320BEDE8000F1488C /* GraphQL */,
 				915385DF20BD644500F1488C /* Landing Scenes */,
 				91165F5C20B56910007F622D /* Model */,
@@ -333,6 +357,7 @@
 				91AE11CA20B3E22200C0A878 /* Graphik-Regular.ttf in Resources */,
 				915385E520BEDEDF00F1488C /* schema.json in Resources */,
 				915E5CA220E0A25E001967A8 /* Transfer.storyboard in Resources */,
+				91392ED420E6E15E006FCE4B /* WalletAddress.graphql in Resources */,
 				91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */,
 				91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */,
 				91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */,
@@ -394,6 +419,8 @@
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -408,6 +435,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -433,16 +462,23 @@
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
+				912733A520E4B205008D7A7A /* ReviewSendViewController.swift in Sources */,
 				91165F5E20B56929007F622D /* User.swift in Sources */,
+				91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
+				914E7D3E20EF62ED000976C5 /* LoadingViewController.swift in Sources */,
 				910C393620D1512400CC3DE7 /* WalletPagerCell.swift in Sources */,
 				915E5CA520E0A2AC001967A8 /* SendCoinViewController.swift in Sources */,
 				915385E120BD648200F1488C /* OverviewViewController.swift in Sources */,
 				91165F6020B56CDE007F622D /* Utilities.swift in Sources */,
 				9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */,
 				915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */,
+				912733A320E490F9008D7A7A /* ApolloManager.swift in Sources */,
 				910C393120D14F2F00CC3DE7 /* WalletViewController.swift in Sources */,
+				91392ED020E59DE1006FCE4B /* TransferRequest.swift in Sources */,
 				91165F6220B572FB007F622D /* StringConstants.swift in Sources */,
+				91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */,
+				91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */,
 				910A806920DA84EC00A63C9F /* API.swift in Sources */,
 				9127E12220B439E100CCC255 /* Extensions.swift in Sources */,
 			);

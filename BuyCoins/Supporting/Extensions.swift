@@ -74,6 +74,27 @@ extension Double {
     }
 }
 
+extension String {
+
+    static func cryptocurrency(_ cryptoCurrency: Cryptocurrency) -> String {
+        var cryptoString = ""
+        switch cryptoCurrency {
+        case .bitcoinCash:
+            cryptoString = "BCH"
+        case .bitcoin:
+            cryptoString = "BTC"
+        case .ethereum:
+            cryptoString = "ETH"
+        case .litecoin:
+            cryptoString = "LTC"
+            
+        default:
+            break
+        }
+        return cryptoString
+    }
+}
+
 
 
 extension UIButton {
@@ -135,10 +156,10 @@ extension UIFont {
 }
 
 extension UIViewController {
-    func displayErrorModal(error: String?) {
+    func displayErrorModal(error: String?, completionHandler: ((UIAlertAction) -> Void)? = nil) {
         
         let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: completionHandler)
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
     }

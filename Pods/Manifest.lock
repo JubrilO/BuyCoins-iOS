@@ -9,6 +9,8 @@ PODS:
   - FSPagerView (0.7.1)
   - IQKeyboardManagerSwift (6.0.3)
   - Locksmith (4.0.0)
+  - QRCode (2.0)
+  - QRCodeReader.swift (8.2.0)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
   - Realm/Headers (3.5.0)
@@ -25,6 +27,8 @@ DEPENDENCIES:
   - FSPagerView
   - IQKeyboardManagerSwift
   - Locksmith
+  - QRCode
+  - QRCodeReader.swift (~> 8.2.0)
   - RealmSwift
   - SkyFloatingLabelTextField (~> 3.4.1)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
@@ -38,6 +42,8 @@ SPEC REPOS:
     - FSPagerView
     - IQKeyboardManagerSwift
     - Locksmith
+    - QRCode
+    - QRCodeReader.swift
     - Realm
     - RealmSwift
     - SkyFloatingLabelTextField
@@ -60,12 +66,14 @@ SPEC CHECKSUMS:
   FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
+  QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 07bb715500d9ccf24f2a1565de757e4b1a54f135
+PODFILE CHECKSUM: c15edd355c29dbbd1165fed9b636c1de97d023bc
 
 COCOAPODS: 1.5.2
