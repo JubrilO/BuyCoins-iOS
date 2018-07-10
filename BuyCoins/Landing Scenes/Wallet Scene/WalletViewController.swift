@@ -108,6 +108,14 @@ class WalletViewController: UIViewController {
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {
+        presentSendCoinVC()
+    }
+    
+    @IBAction func onSendNavButtonTap(_ sender: UIBarButtonItem) {
+        presentSendCoinVC()
+    }
+    
+    func presentSendCoinVC() {
         let transferStoryboard = UIStoryboard(name: Constants.StoryboardNames.Transfer, bundle: nil)
         if let sendCoinVC = transferStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.SendCoinScene) as? SendCoinViewController {
             sendCoinVC.cryptocurrency = currentWalletType
@@ -143,7 +151,7 @@ extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
         let cryptoTransaction =  cryptoTransactions[indexPath.row]
         cell.btcAmountLabel.text = cryptoTransaction.node!.amount! + cryptoTransaction.cryptoTypeString
         let nairaAmount = Float(cryptoTransaction.node!.amount!)! * walletData!.cryptoPriceIndex!.currentCryptoPrice
-        cell.nairaAmountLabel.text = String(nairaAmount) + " NGN"
+        cell.nairaAmountLabel.text = String(Double(nairaAmount).withCommas()) + " NGN"
         cell.transactionTypeLabel.text = cryptoTransaction.node?.direction
         let dateCreated = Date(timeIntervalSince1970: TimeInterval(cryptoTransaction.node!.createdAt))
         let dateFormatter = DateFormatter()
