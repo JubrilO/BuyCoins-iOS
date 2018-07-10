@@ -24,34 +24,34 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="3uZ-7N-IYq" customClass="WalletPagerCell" customModule="BuyCoins" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="402"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="904-Em-HTM">
-                    <rect key="frame" x="144.5" y="157" width="87.5" height="23.5"/>
+                    <rect key="frame" x="144.5" y="137" width="87.5" height="23.5"/>
                     <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ibw-KG-SYU">
-                    <rect key="frame" x="109.5" y="198.5" width="157" height="28"/>
+                    <rect key="frame" x="135.5" y="178.5" width="105.5" height="28"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.3355" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-ta-9AO">
-                            <rect key="frame" x="0.0" y="0.0" width="98.5" height="28"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-ta-9AO">
+                            <rect key="frame" x="0.0" y="0.0" width="47" height="28"/>
                             <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBC-tP-Ssu">
-                            <rect key="frame" x="104.5" y="0.0" width="52.5" height="28"/>
+                            <rect key="frame" x="53" y="0.0" width="52.5" height="28"/>
                             <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,567,890.05 NGN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHY-Qd-xbe">
-                    <rect key="frame" x="126.5" y="232.5" width="123" height="19.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 NGN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHY-Qd-xbe">
+                    <rect key="frame" x="159.5" y="212.5" width="57.5" height="19.5"/>
                     <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
                     <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="0.5" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                 <outlet property="topConstraint" destination="d9c-xI-nAR" id="JAt-jV-S1P"/>
                 <outlet property="walletTypeLabel" destination="904-Em-HTM" id="ERe-TN-vm4"/>
             </connections>
-            <point key="canvasLocation" x="82" y="-79"/>
+            <point key="canvasLocation" x="73" y="-87"/>
         </view>
     </objects>
 </document>

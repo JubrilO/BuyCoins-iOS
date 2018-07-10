@@ -10,8 +10,9 @@ import UIKit
 import FSPagerView
 import Apollo
 import Locksmith
+import QRCodeReader
 
-class WalletViewController: UIViewController {
+class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var recieveButton: UIButton!
@@ -24,16 +25,11 @@ class WalletViewController: UIViewController {
         }
     }
     
-    var wallets = [WalletBalanceQuery.Data.CurrentUser.Wallet]() {
-        didSet {
-           //pagerView.reloadData()
-        }
-    }
+    var wallets = [WalletBalanceQuery.Data.CurrentUser.Wallet]()
     var walletData: WalletTransactionsQuery.Data? {
         didSet {
             pagerView.reloadData()
             cryptoTransactions = walletData!.currentUser!.cryptoTransactions!.edges! as! [WalletTransactionsQuery.Data.CurrentUser.CryptoTransaction.Edge]
-            //tableView.reloadData()
         }
     }
     var cryptoTransactions = [WalletTransactionsQuery.Data.CurrentUser.CryptoTransaction.Edge]() {
@@ -59,10 +55,20 @@ class WalletViewController: UIViewController {
         }
     }()
     
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pagerView.isUserInteractionEnabled = false
+        pagerView.itemSize = pagerView.bounds.size
+        tableView.tableFooterView = UIView()
         fetchWalletDetails(cryptoCurrency: .bitcoin)
         setupNavBarImage()
     }
@@ -95,8 +101,7 @@ class WalletViewController: UIViewController {
         default:
             break
         }
-                pagerView.scrollToItem(at: sender.selectedSegmentIndex, animated: true)
-
+        pagerView.scrollToItem(at: sender.selectedSegmentIndex, animated: true)
     }
     
     @IBAction func onRecieveButtonTap(_ sender: UIButton) {
@@ -107,6 +112,13 @@ class WalletViewController: UIViewController {
         }
     }
     
+    @IBAction func onScanNavButtonTap(_ sender: UIBarButtonItem) {
+        readerVC.delegate = self
+        let readerNavVC = UINavigationController(rootViewController: readerVC)
+        readerNavVC.setNavigationBarHidden(true, animated: true)
+        present(readerVC, animated: true)
+    }
+    
     @IBAction func onSendButtonTap(_ sender: UIButton) {
         presentSendCoinVC()
     }
@@ -114,15 +126,45 @@ class WalletViewController: UIViewController {
     @IBAction func onSendNavButtonTap(_ sender: UIBarButtonItem) {
         presentSendCoinVC()
     }
+
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        if let address = CryptoAddressValidator.init(result.value, crypto: currentWalletType).getAddress() {
+            reader.stopScanning()
+            guard let sendCoinVC  = createSendCoinVC() else {
+                reader.dismiss(animated: true)
+                return
+            }
+            sendCoinVC.address = address
+            reader.navigationController?.pushViewController(sendCoinVC, animated: true)
+        }
+        else {
+            reader.displayErrorModal(error: "Invalid \(currentWalletType.rawValue.capitalized) address") {
+                _ in
+                reader.startScanning()
+            }
+        }
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        reader.dismiss(animated: true)
+    }
     
     func presentSendCoinVC() {
+        if let sendCoinVC = createSendCoinVC(){
+            present(sendCoinVC, animated: true)
+        }
+    }
+    
+    func createSendCoinVC() -> SendCoinViewController?{
         let transferStoryboard = UIStoryboard(name: Constants.StoryboardNames.Transfer, bundle: nil)
         if let sendCoinVC = transferStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.SendCoinScene) as? SendCoinViewController {
             sendCoinVC.cryptocurrency = currentWalletType
-            guard let cryptoNairaPrice = Double(walletData?.cryptoPriceIndex?.values?.first??.rate ?? "0") else { return }
+            guard let cryptoNairaPrice = Double(walletData?.cryptoPriceIndex?.values?.first??.rate ?? "0") else { return  nil}
             sendCoinVC.cryptoNairaPrice = cryptoNairaPrice
-            present(sendCoinVC, animated: true)
+            return sendCoinVC
         }
+        return nil
     }
     
     func fetchWalletDetails(cryptoCurrency: Cryptocurrency) {
@@ -135,7 +177,9 @@ class WalletViewController: UIViewController {
             }
             
             guard let walletData = result?.data else {print("could not retrieve wallet"); return}
-            self.walletData = walletData
+            DispatchQueue.main.async { [unowned self] in
+                self.walletData = walletData
+            }
         }
     }
 }

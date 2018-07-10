@@ -38,6 +38,7 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     
     var cryptocurrency = Cryptocurrency.bitcoin
     var cryptoNairaPrice: Double!
+    var address = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +113,7 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     
     func setupLabels() {
         currencyLabel.setCryptoCurrency(cryptoCurrency: cryptocurrency)
+        walletAddressTextField.text = address
         amountTextField.placeholder = "0.00 " + String.cryptocurrency(cryptocurrency)
     }
     
