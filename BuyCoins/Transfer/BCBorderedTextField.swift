@@ -16,7 +16,7 @@ class BCBorderedTextField: UITextField {
         self.layer.borderColor = UIColor.coolGrey.withAlphaComponent(0.5).cgColor
     }
     
-    let padding = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 52);
+    let padding = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 60);
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)

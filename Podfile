@@ -17,6 +17,8 @@ use_frameworks!
     pod 'Locksmith'
     pod 'QRCode'
     pod 'QRCodeReader.swift', '~> 8.2.0'
+    pod 'RSSelectionMenu'
+
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     
 end

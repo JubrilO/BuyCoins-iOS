@@ -16,6 +16,7 @@ PODS:
   - Realm/Headers (3.5.0)
   - RealmSwift (3.5.0):
     - Realm (= 3.5.0)
+  - RSSelectionMenu (4.0)
   - SkyFloatingLabelTextField (3.4.1)
   - SwiftValidator (4.0.0)
   - SwiftyJSON (4.1.0)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - QRCode
   - QRCodeReader.swift (~> 8.2.0)
   - RealmSwift
+  - RSSelectionMenu
   - SkyFloatingLabelTextField (~> 3.4.1)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - SwiftyJSON
@@ -46,6 +48,7 @@ SPEC REPOS:
     - QRCodeReader.swift
     - Realm
     - RealmSwift
+    - RSSelectionMenu
     - SkyFloatingLabelTextField
     - SwiftyJSON
 
@@ -70,10 +73,11 @@ SPEC CHECKSUMS:
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  RSSelectionMenu: 6029e6927ffc94d84244b686f95c91f92a926a7f
   SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: c15edd355c29dbbd1165fed9b636c1de97d023bc
+PODFILE CHECKSUM: edfcc13cb0115c5df9115f3e4ac7db1eefb85eba
 
 COCOAPODS: 1.5.2

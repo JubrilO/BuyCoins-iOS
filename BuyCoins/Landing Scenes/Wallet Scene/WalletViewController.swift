@@ -116,7 +116,7 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
         readerVC.delegate = self
         let readerNavVC = UINavigationController(rootViewController: readerVC)
         readerNavVC.setNavigationBarHidden(true, animated: true)
-        present(readerVC, animated: true)
+        present(readerNavVC, animated: true)
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {

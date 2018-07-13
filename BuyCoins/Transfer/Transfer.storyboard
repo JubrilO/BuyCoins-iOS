@@ -50,7 +50,7 @@
                                                 <rect key="frame" x="18" y="30" width="339" height="531.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0L-1g-Cfe">
-                                                        <rect key="frame" x="126.5" y="20" width="87.5" height="22.5"/>
+                                                        <rect key="frame" x="126" y="20" width="87.5" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -161,7 +161,17 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QV-iR-ovI">
                                                         <rect key="frame" x="276" y="151" width="25" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="n8N-pp-ZBO"/>
+                                                            <constraint firstAttribute="height" constant="40" id="sEv-9Z-XnH"/>
+                                                        </constraints>
                                                         <state key="normal" image="qr-code-highlight"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="n8N-pp-ZBO"/>
+                                                                <exclude reference="sEv-9Z-XnH"/>
+                                                            </mask>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="onScanButtonTouch:" destination="f1p-NP-MVJ" eventType="touchUpInside" id="9nJ-tA-Wsd"/>
                                                         </connections>
@@ -184,7 +194,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBQ-9D-thJ">
-                                                        <rect key="frame" x="10.5" y="14.5" width="35" height="35"/>
+                                                        <rect key="frame" x="10.5" y="14" width="35" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="FLW-ta-x4X"/>
                                                             <constraint firstAttribute="height" constant="35" id="zpm-FO-kPg"/>
@@ -194,15 +204,31 @@
                                                             <action selector="onCloseButtonTap:" destination="f1p-NP-MVJ" eventType="touchUpInside" id="9mo-LH-09p"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSB-kd-dd6">
+                                                        <rect key="frame" x="259" y="313" width="34" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Dsg-5Y-pZj"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="-80" maxY="0.0"/>
+                                                        <state key="normal" title="BTC" image="smallArrowDown">
+                                                            <color key="titleColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onCurrencyTypeButtonTap:" destination="f1p-NP-MVJ" eventType="touchUpInside" id="wgK-6I-425"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="s4w-PE-ech" secondAttribute="trailing" constant="20" id="56K-8P-VB4"/>
                                                     <constraint firstItem="zxJ-wU-w01" firstAttribute="top" secondItem="4k2-w1-YAM" secondAttribute="bottom" constant="30" id="6BA-FB-lTd"/>
                                                     <constraint firstItem="PBQ-9D-thJ" firstAttribute="leading" secondItem="47B-Yp-YT6" secondAttribute="leading" constant="10.5" id="7AD-Zy-BMJ"/>
+                                                    <constraint firstItem="dSB-kd-dd6" firstAttribute="centerY" secondItem="2OP-eS-yyE" secondAttribute="centerY" id="7ks-cy-y8D"/>
                                                     <constraint firstItem="OfV-BA-OQv" firstAttribute="leading" secondItem="47B-Yp-YT6" secondAttribute="leading" constant="20" id="8M0-RQ-Tek"/>
                                                     <constraint firstItem="s4w-PE-ech" firstAttribute="top" secondItem="OfV-BA-OQv" secondAttribute="bottom" constant="30" id="Eyk-mm-qM3"/>
                                                     <constraint firstAttribute="trailing" secondItem="Gff-BY-03n" secondAttribute="trailing" constant="20" id="Hoq-vf-0o9"/>
+                                                    <constraint firstItem="dSB-kd-dd6" firstAttribute="trailing" secondItem="2OP-eS-yyE" secondAttribute="trailing" constant="-35" id="IwU-08-4nC"/>
                                                     <constraint firstItem="60y-jB-qhY" firstAttribute="top" secondItem="2OP-eS-yyE" secondAttribute="bottom" constant="15" id="J3d-Y7-CBi"/>
                                                     <constraint firstItem="4k2-w1-YAM" firstAttribute="leading" secondItem="47B-Yp-YT6" secondAttribute="leading" id="JT5-qb-JNY"/>
                                                     <constraint firstItem="zxJ-wU-w01" firstAttribute="leading" secondItem="47B-Yp-YT6" secondAttribute="leading" constant="20" id="Jdy-Ab-FN1"/>
@@ -279,6 +305,7 @@
                     <connections>
                         <outlet property="amountTextField" destination="2OP-eS-yyE" id="n5i-vv-P4K"/>
                         <outlet property="availableBalanceLabel" destination="pnE-zJ-vPF" id="llQ-kA-AnI"/>
+                        <outlet property="currencyButton" destination="dSB-kd-dd6" id="hwi-wc-aQh"/>
                         <outlet property="currencyLabel" destination="2ke-ih-g14" id="IDg-Qt-tvK"/>
                         <outlet property="headerLabel" destination="B0L-1g-Cfe" id="Ohp-Dw-467"/>
                         <outlet property="sendButton" destination="Eyp-M0-GBC" id="j68-Ej-pEy"/>
@@ -589,7 +616,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Wallet ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyE-RG-93n">
-                                        <rect key="frame" x="20" y="93.5" width="61" height="19.5"/>
+                                        <rect key="frame" x="20" y="93.5" width="60.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="14"/>
                                         <color key="textColor" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -635,7 +662,7 @@
                                         <rect key="frame" x="20" y="333" width="295" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsd-C6-qla">
-                                                <rect key="frame" x="12" y="12" width="271" height="16.5"/>
+                                                <rect key="frame" x="12" y="12.5" width="271" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                                 <color key="textColor" red="0.30980392156862746" green="0.68627450980392157" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -659,7 +686,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbT-QN-psu">
-                                        <rect key="frame" x="10.5" y="11" width="40" height="40"/>
+                                        <rect key="frame" x="10.5" y="11.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ov9-zR-nTr"/>
                                             <constraint firstAttribute="width" constant="40" id="t1Z-RK-mF8"/>
@@ -738,5 +765,6 @@
         <image name="close-modal" width="16" height="16"/>
         <image name="logoBig" width="118" height="43"/>
         <image name="qr-code-highlight" width="25" height="24"/>
+        <image name="smallArrowDown" width="7" height="5"/>
     </resources>
 </document>

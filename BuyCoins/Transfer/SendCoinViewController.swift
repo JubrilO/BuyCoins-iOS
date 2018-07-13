@@ -18,6 +18,7 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     @IBOutlet weak var amountTextField: BCBorderedTextField!
     @IBOutlet weak var walletAddressTextField: BCBorderedTextField!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var currencyButton: UIButton!
     
     let validator = Validator()
     
@@ -66,6 +67,8 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
         dismiss(animated: true)
     }
     
+    @IBAction func onCurrencyTypeButtonTap(_ sender: UIButton) {
+    }
     @IBAction func onScanButtonTouch(_ sender: UIButton) {
         readerVC.delegate = self
         present(readerVC, animated: true)
@@ -142,6 +145,7 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
         }
         
     }
+    
     func fetchNetworkMaxNetworkFee() {
         guard let confirmedBalance = walletData?.currentUser?.wallet?.confirmedBalance else {return}
         let networkFeeQuery = NetworkFeeQuery(amount: confirmedBalance, address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
