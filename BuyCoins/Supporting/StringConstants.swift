@@ -18,16 +18,20 @@ struct Constants {
         static let SendCoinScene = "SendCoinScene"
         static let ReviewSendScene = "ReviewSendScene"
         static let WalletAddressScene = "WalletAddressScene"
+        static let SelectCurrencyScene = "SelectCurrencyScene"
+        static let EnterAmountScene = "EnterAmountScene"
     }
     
     struct StoryboardNames {
         static let Landing = "Landing"
         static let Auth = "Auth"
         static let Transfer = "Transfer"
+        static let Trade = "Trade"
     }
     
     struct CellIdentifiers {
         static let WalletPagerCell = "WalletPagerCell"
         static let WalletTransactionCell = "WalletTransactionCell"
+        static let SelectCurrencyCell = "SelectCurrencyCell"
     }
 }

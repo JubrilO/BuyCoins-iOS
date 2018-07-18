@@ -62,9 +62,20 @@ class OverviewViewController: UIViewController {
     }
     
     @IBAction func onBuyCoinsButtonTap(_ sender: UIButton) {
+        let tradeStoryboard = UIStoryboard(name: Constants.StoryboardNames.Trade, bundle: nil)
+        if let selectCurrencyVC = tradeStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.SelectCurrencyScene) as? SelectCurrencyViewController {
+            selectCurrencyVC.tradeType = .buy
+            present(selectCurrencyVC, animated: true)
+        }
+    
     }
     
     @IBAction func onSellCoinsButtonTap(_ sender: UIButton) {
+        let tradeStoryboard = UIStoryboard(name: Constants.StoryboardNames.Trade, bundle: nil)
+        if let selectCurrencyVC = tradeStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.SelectCurrencyScene) as? SelectCurrencyViewController {
+            selectCurrencyVC.tradeType = .sell
+            present(selectCurrencyVC, animated: true)
+        }
     }
     
     @IBAction func onGetStartedButtonTap(_ sender: UIButton) {

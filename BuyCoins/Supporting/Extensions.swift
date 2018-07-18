@@ -45,7 +45,7 @@ extension Double {
         return numberFormatter.string(from: NSNumber(value:self))!
     }
     
-    mutating func roundToPlaces(_ places : Int) -> Double {
+     func roundToPlaces(_ places : Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self.rounded() * divisor) / divisor
     }

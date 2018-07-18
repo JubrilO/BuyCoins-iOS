@@ -24,9 +24,7 @@ class ReviewSendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupLabels()
-        
     }
     
     func setupLabels() {

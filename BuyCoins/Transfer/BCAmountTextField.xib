@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+        <array key="graphik-medium-webfont.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+        <array key="graphik-semibold-webfont.ttf">
+            <string>Graphik-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BCAmountTextField" customModule="BuyCoins" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="xnX-NB-guy"/>
+                <outlet property="currencyLabel" destination="yvO-LJ-ijm" id="aaf-vS-HTs"/>
+                <outlet property="equivAmountLabel" destination="gWk-Qq-vaD" id="a85-ew-RXY"/>
+                <outlet property="selectCurrencyButton" destination="3tS-Ff-xCI" id="rYe-VO-Iv5"/>
+                <outlet property="switchButton" destination="50y-hP-ukH" id="1dQ-uG-ZQl"/>
+                <outlet property="tapGestureRecognizer" destination="Fb3-7i-hjG" id="Fjh-w6-cAQ"/>
+                <outlet property="textField" destination="XyE-nx-XAy" id="W3d-xb-NpI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-nx-XAy">
+                    <rect key="frame" x="16" y="16" width="252" height="19"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="0.00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWk-Qq-vaD">
+                    <rect key="frame" x="16" y="39" width="27" height="14"/>
+                    <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
+                    <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50y-hP-ukH">
+                    <rect key="frame" x="335" y="-195" width="24" height="211"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="BMa-ya-51S"/>
+                        <constraint firstAttribute="height" constant="24" id="xfp-HZ-xI2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
+                    <state key="normal" image="switch">
+                        <color key="titleColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onSwitchButtonTap:" destination="-1" eventType="touchUpInside" id="oSI-oV-28h"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tS-Ff-xCI">
+                    <rect key="frame" x="283" y="16" width="42" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="e9G-uv-lGm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="BTC" image="smallArrowDown">
+                        <color key="titleColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="NGN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvO-LJ-ijm">
+                    <rect key="frame" x="44" y="39" width="27" height="14"/>
+                    <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
+                    <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="yvO-LJ-ijm" firstAttribute="leading" secondItem="gWk-Qq-vaD" secondAttribute="trailing" constant="1" id="0EV-hv-QNZ"/>
+                <constraint firstItem="50y-hP-ukH" firstAttribute="leading" secondItem="3tS-Ff-xCI" secondAttribute="trailing" constant="10" id="0bg-j1-d8J"/>
+                <constraint firstItem="yvO-LJ-ijm" firstAttribute="centerY" secondItem="gWk-Qq-vaD" secondAttribute="centerY" id="0hO-j8-EMa"/>
+                <constraint firstItem="XyE-nx-XAy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="4aG-2I-j2S"/>
+                <constraint firstItem="gWk-Qq-vaD" firstAttribute="top" secondItem="XyE-nx-XAy" secondAttribute="bottom" constant="4" id="7hF-xC-mrP"/>
+                <constraint firstItem="gWk-Qq-vaD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="8KZ-RG-H6i"/>
+                <constraint firstItem="3tS-Ff-xCI" firstAttribute="leading" secondItem="XyE-nx-XAy" secondAttribute="trailing" constant="15" id="GDT-yN-get"/>
+                <constraint firstItem="XyE-nx-XAy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="JOi-Bg-Djz"/>
+                <constraint firstItem="50y-hP-ukH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="Ph1-kK-f1J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="50y-hP-ukH" secondAttribute="trailing" constant="16" id="i2h-Ka-bOw"/>
+                <constraint firstItem="3tS-Ff-xCI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="xD5-uw-irl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Fb3-7i-hjG" appends="YES" id="u2i-7p-mG3"/>
+            </connections>
+            <point key="canvasLocation" x="76.5" y="-222.5"/>
+        </view>
+        <tapGestureRecognizer id="Fb3-7i-hjG">
+            <connections>
+                <action selector="onTapGestureRecognised:" destination="-1" id="db9-vR-N2i"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="smallArrowDown" width="7" height="5"/>
+        <image name="switch" width="12" height="20"/>
+    </resources>
+</document>

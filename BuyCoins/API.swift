@@ -565,6 +565,248 @@ public final class NetworkFeeQuery: GraphQLQuery {
   }
 }
 
+public final class CardsQuery: GraphQLQuery {
+  public static let operationString =
+    "query Cards {\n  currentUser {\n    __typename\n    cards {\n      __typename\n      card_type\n      last4\n      id\n    }\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("currentUser", type: .object(CurrentUser.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(currentUser: CurrentUser? = nil) {
+      self.init(snapshot: ["__typename": "Query", "currentUser": currentUser.flatMap { (value: CurrentUser) -> Snapshot in value.snapshot }])
+    }
+
+    public var currentUser: CurrentUser? {
+      get {
+        return (snapshot["currentUser"] as? Snapshot).flatMap { CurrentUser(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "currentUser")
+      }
+    }
+
+    public struct CurrentUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("cards", type: .list(.object(Card.selections))),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(cards: [Card?]? = nil) {
+        self.init(snapshot: ["__typename": "User", "cards": cards.flatMap { (value: [Card?]) -> [Snapshot?] in value.map { (value: Card?) -> Snapshot? in value.flatMap { (value: Card) -> Snapshot in value.snapshot } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var cards: [Card?]? {
+        get {
+          return (snapshot["cards"] as? [Snapshot?]).flatMap { (value: [Snapshot?]) -> [Card?] in value.map { (value: Snapshot?) -> Card? in value.flatMap { (value: Snapshot) -> Card in Card(snapshot: value) } } }
+        }
+        set {
+          snapshot.updateValue(newValue.flatMap { (value: [Card?]) -> [Snapshot?] in value.map { (value: Card?) -> Snapshot? in value.flatMap { (value: Card) -> Snapshot in value.snapshot } } }, forKey: "cards")
+        }
+      }
+
+      public struct Card: GraphQLSelectionSet {
+        public static let possibleTypes = ["Card"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("card_type", type: .nonNull(.scalar(String.self))),
+          GraphQLField("last4", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        public init(cardType: String, last4: String, id: GraphQLID) {
+          self.init(snapshot: ["__typename": "Card", "card_type": cardType, "last4": last4, "id": id])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var cardType: String {
+          get {
+            return snapshot["card_type"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "card_type")
+          }
+        }
+
+        public var last4: String {
+          get {
+            return snapshot["last4"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "last4")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return snapshot["id"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "id")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CoinPriceQuery: GraphQLQuery {
+  public static let operationString =
+    "query CoinPrice($cryptocurrency: Cryptocurrency!) {\n  buycoinsPrices(cryptocurrency: $cryptocurrency) {\n    __typename\n    buyPricePerCoin\n    sellPricePerCoin\n    maxBuy\n    maxSell\n  }\n}"
+
+  public var cryptocurrency: Cryptocurrency
+
+  public init(cryptocurrency: Cryptocurrency) {
+    self.cryptocurrency = cryptocurrency
+  }
+
+  public var variables: GraphQLMap? {
+    return ["cryptocurrency": cryptocurrency]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("buycoinsPrices", arguments: ["cryptocurrency": GraphQLVariable("cryptocurrency")], type: .object(BuycoinsPrice.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(buycoinsPrices: BuycoinsPrice? = nil) {
+      self.init(snapshot: ["__typename": "Query", "buycoinsPrices": buycoinsPrices.flatMap { (value: BuycoinsPrice) -> Snapshot in value.snapshot }])
+    }
+
+    public var buycoinsPrices: BuycoinsPrice? {
+      get {
+        return (snapshot["buycoinsPrices"] as? Snapshot).flatMap { BuycoinsPrice(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "buycoinsPrices")
+      }
+    }
+
+    public struct BuycoinsPrice: GraphQLSelectionSet {
+      public static let possibleTypes = ["BuycoinsPrice"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("buyPricePerCoin", type: .scalar(String.self)),
+        GraphQLField("sellPricePerCoin", type: .scalar(String.self)),
+        GraphQLField("maxBuy", type: .scalar(String.self)),
+        GraphQLField("maxSell", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(buyPricePerCoin: String? = nil, sellPricePerCoin: String? = nil, maxBuy: String? = nil, maxSell: String? = nil) {
+        self.init(snapshot: ["__typename": "BuycoinsPrice", "buyPricePerCoin": buyPricePerCoin, "sellPricePerCoin": sellPricePerCoin, "maxBuy": maxBuy, "maxSell": maxSell])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// Price per coin in naira, that users can buy from us
+      public var buyPricePerCoin: String? {
+        get {
+          return snapshot["buyPricePerCoin"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "buyPricePerCoin")
+        }
+      }
+
+      /// Price per coin in naira, that users can sell to us
+      public var sellPricePerCoin: String? {
+        get {
+          return snapshot["sellPricePerCoin"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "sellPricePerCoin")
+        }
+      }
+
+      /// The maximum amount of coin that can be bought with the USD we have.
+      public var maxBuy: String? {
+        get {
+          return snapshot["maxBuy"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "maxBuy")
+        }
+      }
+
+      /// The maximum amount of coin that can be sold based on the Naira we can currently send to users
+      public var maxSell: String? {
+        get {
+          return snapshot["maxSell"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "maxSell")
+        }
+      }
+    }
+  }
+}
+
 public final class WalletAddressQuery: GraphQLQuery {
   public static let operationString =
     "query WalletAddress($cryptocurrency: Cryptocurrency) {\n  getAddress(cryptocurrency: $cryptocurrency) {\n    __typename\n    address\n    cryptocurrency\n  }\n}"

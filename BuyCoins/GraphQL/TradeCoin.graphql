@@ -1,0 +1,18 @@
+query Cards {
+    currentUser {
+        cards{
+            card_type
+            last4
+            id
+        }
+    }
+}
+
+query CoinPrice($cryptocurrency: Cryptocurrency!) {
+    buycoinsPrices(cryptocurrency: $cryptocurrency) {
+        buyPricePerCoin
+        sellPricePerCoin
+        maxBuy
+        maxSell
+    }
+}

@@ -1,3 +1,4 @@
+
 //
 //  LoadingViewController.swift
 //  BuyCoins
@@ -10,22 +11,24 @@ import Foundation
 import UIKit
 
 class LoadingViewController: UIViewController {
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicator = BCActivityIndicator(frame: CGRect(x: 0, y: 0, width: 71, height: 75))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        view.backgroundColor = UIColor.coolGrey
         view.addSubview(activityIndicator)
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 75),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 71)
             ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.activityIndicator.startAnimating()
         }
 
@@ -34,9 +37,10 @@ class LoadingViewController: UIViewController {
 
 extension UIViewController {
     func add(_ child: UIViewController) {
-        addChildViewController(child)
-        view.addSubview(child.view)
-        child.didMove(toParentViewController: self)
+            addChildViewController(child)
+            child.view.frame = view.frame
+            view.addSubview(child.view)
+            child.didMove(toParentViewController: self)
     }
     
     func remove() {

@@ -10,17 +10,18 @@ import UIKit
 import SwiftValidator
 import Apollo
 import QRCodeReader
+import RSSelectionMenu
 
 class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReaderViewControllerDelegate {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var availableBalanceLabel: UILabel!
-    @IBOutlet weak var amountTextField: BCBorderedTextField!
     @IBOutlet weak var walletAddressTextField: BCBorderedTextField!
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var currencyButton: UIButton!
+    @IBOutlet weak var amountView: BCAmountTextField!
     
     let validator = Validator()
+    let slideAnimator = CardPresentationAnimator()
     
     private var walletData: WalletBalanceQuery.Data? {
         didSet {
@@ -44,6 +45,9 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
+        amountView.cryptoNairaPrice = cryptoNairaPrice
+        amountView.cryptocurrency = cryptocurrency
+        amountView.selectCurrencyButton.addTarget(self, action: #selector(onselectCurrencyButtonTap), for: .touchUpInside)
         fetchAvailableBalance()
         setupTextFieldValidation()
     }
@@ -59,19 +63,34 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
         
         
         if availableBalance > 0.0 {
-            amountTextField.text = String(availableBalance)
+           // amountTextField.text = String(availableBalance)
         }
     }
     
     @IBAction func onCloseButtonTap(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
-    @IBAction func onCurrencyTypeButtonTap(_ sender: UIButton) {
-    }
+
     @IBAction func onScanButtonTouch(_ sender: UIButton) {
         readerVC.delegate = self
         present(readerVC, animated: true)
+    }
+    
+    @objc func onselectCurrencyButtonTap(sender: UIButton) {
+        let data = ["BTC", "ETH", "LTC", "BCH"]
+        let selectionMenu =  RSSelectionMenu(selectionType: .Single, dataSource: data, cellType: .Custom(nibName: "PopoverCell", cellIdentifier: "PopoverCell")) { (cell, object, indexPath) in
+            let cell = cell as! PopoverCell
+            cell.optionLabel.text = object
+            cell.tintColor = UIColor.bcPurple
+        }
+        
+        var selectedItemArray = [String.cryptocurrency(cryptocurrency)]
+    
+        selectionMenu.setSelectedItems(items: selectedItemArray) {
+            text, isSelected, selectedItems in
+            selectedItemArray = selectedItems
+        }
+        selectionMenu.show(style: .Popover(sourceView: sender, size: CGSize(width: 100, height: 180)), from: self)
     }
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
@@ -97,7 +116,7 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     func validationSuccessful() {
         guard let walletData = walletData else {return}
         if CryptoAddressValidator.init(walletAddressTextField.text!, crypto: cryptocurrency).getAddress() == nil { return }
-        if Float(amountTextField.text!)! <= Float(walletData.currentUser!.wallet!.confirmedBalance!)! {
+        if Float(amountView.cryptoAmount) <= Float(walletData.currentUser!.wallet!.confirmedBalance!)! {
             presentConfirmation()
         }
         else {
@@ -117,18 +136,18 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
     func setupLabels() {
         currencyLabel.setCryptoCurrency(cryptoCurrency: cryptocurrency)
         walletAddressTextField.text = address
-        amountTextField.placeholder = "0.00 " + String.cryptocurrency(cryptocurrency)
+        amountView.textField.placeholder = "0.00 " + String.cryptocurrency(cryptocurrency)
     }
     
     func setupTextFieldValidation() {
         validator.registerField(walletAddressTextField, rules: [RequiredRule()])
-        validator.registerField(amountTextField, rules: [RequiredRule(), FloatRule()])
+        validator.registerField(amountView.textField, rules: [RequiredRule(), FloatRule()])
     }
     
     func presentConfirmation() {
         let address = walletAddressTextField.text!
-        let amount = amountTextField.text!
-        let networkFeeQuery = NetworkFeeQuery(amount: amount, address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
+        let amount = amountView.cryptoAmount
+        let networkFeeQuery = NetworkFeeQuery(amount: String(amount), address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
         ApolloManager.shared.apolloClient.fetch(query: networkFeeQuery, cachePolicy: .returnCacheDataAndFetch) {
             result, error in
             if let error = error {
@@ -136,9 +155,10 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
                 self.displayErrorModal(error: error.localizedDescription)
             }
             guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
-            let transferRequest = TransferRequest(walletAddress: address, amount: amount, cryptocurrency: self.cryptocurrency, otp: nil, cryptoNairaPrice: self.cryptoNairaPrice, fee: fee)
+            let transferRequest = TransferRequest(walletAddress: address, amount: String(amount), cryptocurrency: self.cryptocurrency, otp: nil, cryptoNairaPrice: self.cryptoNairaPrice, fee: fee)
             if let confirmationVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIDs.ReviewSendScene) as? ReviewSendViewController {
                 confirmationVC.transferRequest = transferRequest
+                confirmationVC.transitioningDelegate = self
                 self.present(confirmationVC, animated: true)
                 //navigationController?.pushViewController(confirmationVC, animated: true)
             }
@@ -172,7 +192,16 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
             self.walletData = result?.data
         }
     }
+}
+
+extension SendCoinViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return slideAnimator
+    }
     
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
 }
 
 extension UILabel {

@@ -168,9 +168,12 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
     }
     
     func fetchWalletDetails(cryptoCurrency: Cryptocurrency) {
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
         let walletDetailsQuery = WalletTransactionsQuery(cryptocurrency: cryptoCurrency)
         apollo.fetch(query: walletDetailsQuery) {
             result, error in
+            loadingVC.remove()
             if let error = error {
                 print(error)
                 self.displayErrorModal(error: error.localizedDescription)
