@@ -201,3 +201,12 @@ extension UIViewController {
         }
     }
 }
+
+extension UIView {
+    func positionIn(view: UIView) -> CGRect {
+        if let superview = superview {
+            return superview.convert(frame, to: view)
+        }
+        return frame
+    }
+}

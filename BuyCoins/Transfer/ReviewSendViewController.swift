@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewSendViewController: UIViewController {
+class ReviewSendViewController: UIViewController, CardView {
     
     @IBOutlet weak var totalNairaAmountLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
@@ -19,6 +19,7 @@ class ReviewSendViewController: UIViewController {
     @IBOutlet weak var nairaPricePerBTCLabel: UILabel!
     @IBOutlet weak var cryptoTypeLabel: UILabel!
     @IBOutlet weak var cryptoAmountLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
     
     var transferRequest: TransferRequest!
     
@@ -38,6 +39,10 @@ class ReviewSendViewController: UIViewController {
         totalCryptoAmountLabel.text = String(totalCryptoAmount)
         totalNairaAmountLabel.text = String((totalCryptoAmount * transferRequest.cryptoNairaPrice).withCommas()) + " NGN"
         sendButton.setTitle("Send \(transferRequest.amount) \(String.cryptocurrency(transferRequest.cryptocurrency))", for: .normal)
+    }
+    
+    @IBAction func onBackButtonTap(_ sender: UIButton) {
+        dismiss(animated: true)
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {

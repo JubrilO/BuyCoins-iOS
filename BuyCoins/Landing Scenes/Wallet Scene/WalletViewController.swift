@@ -39,6 +39,10 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
     }
     
     var currentWalletType = Cryptocurrency.bitcoin
+    let slideUpAnimator = CardSlideUpAnimator()
+    let slideDownAnimator = CardSlideDownAnimator()
+    var backgroundView: UIView?
+
     
     var topSafeArea = CGFloat()
     var bottomSafeArea = CGFloat()
@@ -71,6 +75,21 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
         tableView.tableFooterView = UIView()
         fetchWalletDetails(cryptoCurrency: .bitcoin)
         setupNavBarImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideAllElements(true)
+        backgroundView = view.resizableSnapshotView(from: view.bounds, afterScreenUpdates: true, withCapInsets: .zero)
+        hideAllElements(false)
+        
+    }
+    
+    func hideAllElements(_ bool: Bool) {
+        cryptoTypeSegmentedControl.isHidden = bool
+        sendButton.isHidden = bool
+        recieveButton.isHidden = bool
+        tableView.isHidden = bool
+        pagerView.isHidden = bool
     }
     
     override func viewDidLayoutSubviews() {
@@ -152,6 +171,7 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
     
     func presentSendCoinVC() {
         if let sendCoinVC = createSendCoinVC(){
+            sendCoinVC.transitioningDelegate = self
             present(sendCoinVC, animated: true)
         }
     }
@@ -186,6 +206,31 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
         }
     }
 }
+
+extension WalletViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if let destinationVC = presented as? SendCoinViewController {
+            slideUpAnimator.backgroundView = backgroundView
+            slideUpAnimator.cardView = destinationVC.cardView
+            return slideUpAnimator
+            
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let vc = dismissed as? SendCoinViewController {
+            slideDownAnimator.cardView = vc.cardView
+            slideDownAnimator.backgroundView = backgroundView
+            return slideDownAnimator
+        }
+        return nil
+    }
+}
+
 
 extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
     

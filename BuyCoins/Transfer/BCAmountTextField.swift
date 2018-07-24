@@ -101,8 +101,8 @@ class BCAmountTextField: UIView, UITextFieldDelegate {
             if let pricePerUnit = cryptoNairaPrice, let amount = Double(textField.text! + string) {
                 print("Crypto Naira Price: \(pricePerUnit) cryptoAmount: \(amount)")
                 equivAmountLabel.text = (pricePerUnit * amount).withCommas()
+                cryptoAmount = amount
             }
-            cryptoAmount = Double(string) ??  0.0
             
         case .naira:
             if let pricePerUnit = cryptoNairaPrice, let amount = Double(textField.text! + string) {

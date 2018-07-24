@@ -12,15 +12,19 @@ import Apollo
 import QRCodeReader
 import RSSelectionMenu
 
-class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReaderViewControllerDelegate {
+class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QRCodeReaderViewControllerDelegate {
+    
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var availableBalanceLabel: UILabel!
     @IBOutlet weak var walletAddressTextField: BCBorderedTextField!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var amountView: BCAmountTextField!
+    @IBOutlet weak var cardView: UIView!
+    
     
     let validator = Validator()
+    var backgroundView: UIView?
     let slideAnimator = CardPresentationAnimator()
     
     private var walletData: WalletBalanceQuery.Data? {
@@ -52,9 +56,30 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
         setupTextFieldValidation()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cardView.isHidden = true
+        backgroundView = view.resizableSnapshotView(from: view.bounds, afterScreenUpdates: true, withCapInsets: .zero)
+        cardView.isHidden = false
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        
+    }
+    
     @IBAction func onSendButtonTap(_ sender: UIButton) {
         validator.validate(self)
     }
+    
+
     
     @IBAction func onMaxAmountButtonTap(_ sender: UIButton) {
         guard let walletData = walletData else {return}
@@ -117,6 +142,8 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
         guard let walletData = walletData else {return}
         if CryptoAddressValidator.init(walletAddressTextField.text!, crypto: cryptocurrency).getAddress() == nil { return }
         if Float(amountView.cryptoAmount) <= Float(walletData.currentUser!.wallet!.confirmedBalance!)! {
+            print("actualcardheight: \(cardView.bounds.height)")
+            view.endEditing(true)
             presentConfirmation()
         }
         else {
@@ -196,10 +223,27 @@ class SendCoinViewController: UIViewController, ValidationDelegate, QRCodeReader
 
 extension SendCoinViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return slideAnimator
+
+        if let destinationVC = presented as? ReviewSendViewController {
+            slideAnimator.backgroundView = backgroundView
+            slideAnimator.originCardView = cardView
+            slideAnimator.destinationCardView = destinationVC.cardView
+            return slideAnimator
+
+        }
+        else {
+            return nil
+        }
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let vc = dismissed as? ReviewSendViewController {
+            let cardDismissalAnimator = CardDismissalAnimator()
+            cardDismissalAnimator.originCardView = vc.cardView
+            cardDismissalAnimator.destinationCardView = cardView
+            cardDismissalAnimator.backgroundView = backgroundView
+            return cardDismissalAnimator
+        }
         return nil
     }
 }

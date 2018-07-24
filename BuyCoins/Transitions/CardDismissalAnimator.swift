@@ -1,25 +1,22 @@
 //
-//  CardPresentationAnimator.swift
+//  CardDismissalAnimator.swift
 //  BuyCoins
 //
-//  Created by Jubril on 7/18/18.
+//  Created by Jubril on 7/20/18.
 //  Copyright © 2018 bitkoin. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class CardPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class CardDismissalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var duration = 1.0
-    var presenting = true
-    var backgroundView : UIView?
+    var backgroundView: UIView?
     var originCardView: UIView!
     var destinationCardView: UIView!
     
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        return 1
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -32,34 +29,32 @@ class CardPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         containerView.addSubview(destinationView)
         destinationView.alpha = 0
         
-        guard let originCardViewSnapshot = originCardView.snapshotView(afterScreenUpdates: false), let destinationCardViewSnapshot = destinationCardView.snapshotView(afterScreenUpdates: true) else {
+        guard let originCardViewSnapshot = originCardView.snapshotView(afterScreenUpdates: true), let destinationCardViewSnapshot = destinationCardView.snapshotView(afterScreenUpdates: false) else {
             return
         }
         
         let originCardFrame = originCardView.positionIn(view: originView)
-        let destinationCardFrame = destinationCardView.positionIn(view: originView)
+        let destinationCardFrame = destinationCardView.positionIn(view: destinationView)
         
         originCardViewSnapshot.frame = originCardFrame
         destinationCardViewSnapshot.frame = destinationCardFrame
-        destinationCardViewSnapshot.frame.origin.x += (destinationView.frame.width - destinationCardFrame.origin.x)
-        
-        print("Destination frame \(destinationCardFrame)")
+        destinationCardViewSnapshot.frame.origin.x -= (destinationCardFrame.width  + destinationCardFrame.origin.x)
         
         containerView.addSubview(backgroundView)
         containerView.addSubview(originCardViewSnapshot)
         containerView.addSubview(destinationCardViewSnapshot)
         
-       // let finalTransform =  destinationCardViewSnapshot.transform
         destinationCardViewSnapshot.frame.size = CGSize(width: destinationCardFrame.width * 0.7, height: destinationCardFrame.height * 0.7)
         
-        let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 1) {
-            originCardViewSnapshot.frame.origin.x = -(originCardFrame.origin.x + originCardFrame.width)
+        
+        let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
+            originCardViewSnapshot.frame.origin.x = originView.frame.width + originCardFrame.width
             originCardViewSnapshot.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         }
         
-        let destinationCardAnimator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 1) {
+        let destinationCardAnimator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
             destinationCardViewSnapshot.frame.origin.x = destinationCardFrame.origin.x
-            destinationCardViewSnapshot.frame.size = CGSize(width: destinationCardFrame.width, height: destinationCardFrame.height)
+            destinationCardViewSnapshot.frame.size = CGSize(width: destinationCardFrame.size.width, height: destinationCardFrame.size.height)
         }
         animator.startAnimation()
         destinationCardAnimator.startAnimation(afterDelay: 0.3)

@@ -49,6 +49,12 @@
 		917D786320FD49EF0008EA95 /* EnterAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D786220FD49EF0008EA95 /* EnterAmountViewController.swift */; };
 		917D786520FD52810008EA95 /* TradeCoin.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 917D786420FD52810008EA95 /* TradeCoin.graphql */; };
 		919A96AC20FF8BDA00482DD4 /* CardPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96AB20FF8BDA00482DD4 /* CardPresentationAnimator.swift */; };
+		919A96AE20FFA41200482DD4 /* CardViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96AD20FFA41200482DD4 /* CardViewProtocol.swift */; };
+		919A96B020FFC8CB00482DD4 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96AF20FFC8CB00482DD4 /* Animation.swift */; };
+		919A96B221023B1B00482DD4 /* CardDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96B121023B1B00482DD4 /* CardDismissalAnimator.swift */; };
+		919A96B42103979400482DD4 /* CardSlideUpAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96B32103979400482DD4 /* CardSlideUpAnimator.swift */; };
+		919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A96B52103A10000482DD4 /* CardSlideDownAnimator.swift */; };
+		919A96B82104DE0C00482DD4 /* BackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 919A96B72104DE0C00482DD4 /* BackgroundView.xib */; };
 		91A089CC20BEECAE0077892D /* Dashboard.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 91A089CB20BEECAE0077892D /* Dashboard.graphql */; };
 		91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */; };
 		91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */; };
@@ -108,6 +114,12 @@
 		917D786220FD49EF0008EA95 /* EnterAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountViewController.swift; sourceTree = "<group>"; };
 		917D786420FD52810008EA95 /* TradeCoin.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TradeCoin.graphql; sourceTree = "<group>"; };
 		919A96AB20FF8BDA00482DD4 /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
+		919A96AD20FFA41200482DD4 /* CardViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewProtocol.swift; sourceTree = "<group>"; };
+		919A96AF20FFC8CB00482DD4 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		919A96B121023B1B00482DD4 /* CardDismissalAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDismissalAnimator.swift; sourceTree = "<group>"; };
+		919A96B32103979400482DD4 /* CardSlideUpAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSlideUpAnimator.swift; sourceTree = "<group>"; };
+		919A96B52103A10000482DD4 /* CardSlideDownAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSlideDownAnimator.swift; sourceTree = "<group>"; };
+		919A96B72104DE0C00482DD4 /* BackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundView.xib; sourceTree = "<group>"; };
 		91A089CB20BEECAE0077892D /* Dashboard.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dashboard.graphql; sourceTree = "<group>"; };
 		91AE11B020B3D6EB00C0A878 /* BuyCoins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuyCoins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +209,8 @@
 				91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */,
 				91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */,
 				914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */,
+				919A96AF20FFC8CB00482DD4 /* Animation.swift */,
+				919A96B72104DE0C00482DD4 /* BackgroundView.xib */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -274,6 +288,10 @@
 			isa = PBXGroup;
 			children = (
 				919A96AB20FF8BDA00482DD4 /* CardPresentationAnimator.swift */,
+				919A96AD20FFA41200482DD4 /* CardViewProtocol.swift */,
+				919A96B121023B1B00482DD4 /* CardDismissalAnimator.swift */,
+				919A96B32103979400482DD4 /* CardSlideUpAnimator.swift */,
+				919A96B52103A10000482DD4 /* CardSlideDownAnimator.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -426,6 +444,7 @@
 				9164C81720E0A7710055C98A /* graphik-semibold-webfont.ttf in Resources */,
 				91165F6420B83EAB007F622D /* Landing.storyboard in Resources */,
 				91A089CC20BEECAE0077892D /* Dashboard.graphql in Resources */,
+				919A96B82104DE0C00482DD4 /* BackgroundView.xib in Resources */,
 				9178116420F8F71C00080431 /* BCAmountTextField.xib in Resources */,
 				91AE11B920B3D6EB00C0A878 /* Auth.storyboard in Resources */,
 				917D786520FD52810008EA95 /* TradeCoin.graphql in Resources */,
@@ -518,12 +537,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919A96B221023B1B00482DD4 /* CardDismissalAnimator.swift in Sources */,
 				917D786120FCEC180008EA95 /* SelectCurrencyCell.swift in Sources */,
 				910A806520D28ED200A63C9F /* WalletTransactionCell.swift in Sources */,
 				91165F5820B5665C007F622D /* APIManager.swift in Sources */,
 				9164C81920E0ACC70055C98A /* BCBorderedTextField.swift in Sources */,
+				919A96B42103979400482DD4 /* CardSlideUpAnimator.swift in Sources */,
 				91165F5A20B566B9007F622D /* APIConstants.swift in Sources */,
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
+				919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */,
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				912733A520E4B205008D7A7A /* ReviewSendViewController.swift in Sources */,
@@ -534,6 +556,7 @@
 				9136EC7420FCCE420029F695 /* SelectCurrencyViewController.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
 				914E7D3E20EF62ED000976C5 /* LoadingViewController.swift in Sources */,
+				919A96AE20FFA41200482DD4 /* CardViewProtocol.swift in Sources */,
 				910C393620D1512400CC3DE7 /* WalletPagerCell.swift in Sources */,
 				919A96AC20FF8BDA00482DD4 /* CardPresentationAnimator.swift in Sources */,
 				915E5CA520E0A2AC001967A8 /* SendCoinViewController.swift in Sources */,
@@ -550,6 +573,7 @@
 				91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */,
 				91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */,
 				910A806920DA84EC00A63C9F /* API.swift in Sources */,
+				919A96B020FFC8CB00482DD4 /* Animation.swift in Sources */,
 				9127E12220B439E100CCC255 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
