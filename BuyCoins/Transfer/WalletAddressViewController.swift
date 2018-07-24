@@ -16,6 +16,7 @@ class WalletAddressViewController: UIViewController {
     @IBOutlet weak var walletAddressLabel: UILabel!
     @IBOutlet weak var toggleAddressDisplayButton: UIButton!
     @IBOutlet weak var walletAddressBackgroundView: UIView!
+    @IBOutlet weak var cardView: UIView!
     
     var cryptocurrency: Cryptocurrency!
     var walletData: WalletAddressQuery.Data? {

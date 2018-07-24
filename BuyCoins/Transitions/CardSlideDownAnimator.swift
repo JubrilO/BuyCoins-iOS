@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class CardSlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    var backgroundView: UIView?
     var cardView: UIView!
+    var destinationSnapshot: UIView?
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1
+        return 0.8
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -22,16 +22,19 @@ class CardSlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         
         guard let originView = transitionContext.view(forKey: UITransitionContextViewKey.from),
-            let destinationView = transitionContext.view(forKey: UITransitionContextViewKey.to), let backgroundView = backgroundView else {
+            let destinationView = transitionContext.view(forKey: UITransitionContextViewKey.to) else {
                 return
         }
         containerView.addSubview(destinationView)
         destinationView.alpha = 0
         
+        let backgroundView = BackgroundView()
+        backgroundView.frame = destinationView.frame
+        
         
         let cardFrame = cardView.positionIn(view: destinationView)
         
-        guard let destinationViewSnapshot = destinationView.snapshotView(afterScreenUpdates: true), let cardViewSnapshot = cardView.snapshotView(afterScreenUpdates: true) else {
+        guard let destinationViewSnapshot = destinationSnapshot, let cardViewSnapshot = cardView.snapshotView(afterScreenUpdates: true) else {
             return
         }
         
@@ -43,7 +46,7 @@ class CardSlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         destinationViewSnapshot.alpha = 0
         
         
-        let animator = UIViewPropertyAnimator(duration: 0.8, dampingRatio: 1) {
+        let animator = UIViewPropertyAnimator(duration: 0.8, dampingRatio: 0.8) {
             destinationViewSnapshot.alpha = 1
             cardViewSnapshot.frame.origin.y = destinationView.bounds.height
             cardViewSnapshot.frame.size = CGSize(width: cardFrame.size.width * 0.8, height: cardFrame.size.height * 0.8)

@@ -127,6 +127,7 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
         let transferStoryboard = UIStoryboard(name: Constants.StoryboardNames.Transfer, bundle: nil)
         if let walletAddressVC = transferStoryboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.WalletAddressScene) as? WalletAddressViewController {
             walletAddressVC.cryptocurrency = currentWalletType
+            walletAddressVC.transitioningDelegate = self
             present(walletAddressVC, animated: true)
         }
     }
@@ -211,10 +212,12 @@ extension WalletViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if let destinationVC = presented as? SendCoinViewController {
-            slideUpAnimator.backgroundView = backgroundView
             slideUpAnimator.cardView = destinationVC.cardView
             return slideUpAnimator
-            
+        }
+        else if let destinationVC = presented as? WalletAddressViewController {
+            slideUpAnimator.cardView = destinationVC.cardView
+            return slideUpAnimator
         }
         else {
             return nil
@@ -224,7 +227,12 @@ extension WalletViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if let vc = dismissed as? SendCoinViewController {
             slideDownAnimator.cardView = vc.cardView
-            slideDownAnimator.backgroundView = backgroundView
+            slideDownAnimator.destinationSnapshot = tabBarController?.view.snapshotView(afterScreenUpdates: true)
+            return slideDownAnimator
+        }
+        else if let vc = dismissed as? WalletAddressViewController {
+            slideDownAnimator.cardView = vc.cardView
+            slideDownAnimator.destinationSnapshot = tabBarController?.view.snapshotView(afterScreenUpdates: true)
             return slideDownAnimator
         }
         return nil

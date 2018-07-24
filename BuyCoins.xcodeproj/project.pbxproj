@@ -42,6 +42,7 @@
 		9164C81720E0A7710055C98A /* graphik-semibold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9164C81520E0A7710055C98A /* graphik-semibold-webfont.ttf */; };
 		9164C81920E0ACC70055C98A /* BCBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164C81820E0ACC70055C98A /* BCBorderedTextField.swift */; };
 		9164C81B20E26B590055C98A /* SendCoin.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9164C81A20E26B590055C98A /* SendCoin.graphql */; };
+		9166468121075FF9008BE590 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9166468021075FF9008BE590 /* BackgroundView.swift */; };
 		917491C220FE122B00EA3EA6 /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917491C120FE122B00EA3EA6 /* PopoverCell.swift */; };
 		9178116420F8F71C00080431 /* BCAmountTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9178116320F8F71C00080431 /* BCAmountTextField.xib */; };
 		9178116620F8FEFC00080431 /* BCAmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178116520F8FEFC00080431 /* BCAmountTextField.swift */; };
@@ -107,6 +108,7 @@
 		9164C81520E0A7710055C98A /* graphik-semibold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "graphik-semibold-webfont.ttf"; sourceTree = "<group>"; };
 		9164C81820E0ACC70055C98A /* BCBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCBorderedTextField.swift; sourceTree = "<group>"; };
 		9164C81A20E26B590055C98A /* SendCoin.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SendCoin.graphql; sourceTree = "<group>"; };
+		9166468021075FF9008BE590 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		917491C120FE122B00EA3EA6 /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
 		9178116320F8F71C00080431 /* BCAmountTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCAmountTextField.xib; sourceTree = "<group>"; };
 		9178116520F8FEFC00080431 /* BCAmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCAmountTextField.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */,
 				919A96AF20FFC8CB00482DD4 /* Animation.swift */,
 				919A96B72104DE0C00482DD4 /* BackgroundView.xib */,
+				9166468021075FF9008BE590 /* BackgroundView.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				91165F5E20B56929007F622D /* User.swift in Sources */,
 				91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */,
 				9178116620F8FEFC00080431 /* BCAmountTextField.swift in Sources */,
+				9166468121075FF9008BE590 /* BackgroundView.swift in Sources */,
 				9127318120FD8EE700B44B70 /* BCActivityIndicator.swift in Sources */,
 				9136EC7420FCCE420029F695 /* SelectCurrencyViewController.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
