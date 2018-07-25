@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,14 +15,10 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverCell" customModule="BuyCoins" customModuleProvider="target">
-            <connections>
-                <outlet property="optionLabel" destination="uWe-9f-Eol" id="po6-Wa-vYd"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverCell" customModule="BuyCoins" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopoverCell" rowHeight="40" id="2GG-jW-c77" customClass="PopoverCell" customModule="BuyCoins" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopoverCell" rowHeight="40" id="2GG-jW-c77" customClass="PopoverCell" customModule="BuyCoins" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="725" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2GG-jW-c77" id="Qpj-hP-uGt">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -35,10 +32,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uWe-9f-Eol" firstAttribute="centerX" secondItem="Qpj-hP-uGt" secondAttribute="centerX" id="dDw-VA-7xR"/>
+                    <constraint firstItem="uWe-9f-Eol" firstAttribute="leading" secondItem="Qpj-hP-uGt" secondAttribute="leadingMargin" id="SsC-cK-tge"/>
                     <constraint firstItem="uWe-9f-Eol" firstAttribute="centerY" secondItem="Qpj-hP-uGt" secondAttribute="centerY" id="kLa-A5-ezu"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="optionLabel" destination="uWe-9f-Eol" id="ymW-sQ-pIJ"/>
+            </connections>
             <point key="canvasLocation" x="28" y="245"/>
         </tableViewCell>
     </objects>

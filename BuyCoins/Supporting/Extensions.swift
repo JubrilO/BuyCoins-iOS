@@ -93,6 +93,21 @@ extension String {
         }
         return cryptoString
     }
+    
+    func cryptocurrency() -> Cryptocurrency? {
+        switch self {
+        case "BTC":
+            return .bitcoin
+        case "ETH":
+            return .ethereum
+        case "BCH":
+            return .bitcoinCash
+        case "LTC":
+            return .litecoin
+        default:
+            return nil
+        }
+    }
 }
 
 

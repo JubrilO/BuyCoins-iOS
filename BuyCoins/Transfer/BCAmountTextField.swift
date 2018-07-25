@@ -112,6 +112,9 @@ class BCAmountTextField: UIView, UITextFieldDelegate {
                 cryptoAmount = amount/pricePerUnit
             }
         }
+        if string == "" && textField.text!.count == 1 {
+            equivAmountLabel.text = "0.0"
+        }
         return true
     }
     

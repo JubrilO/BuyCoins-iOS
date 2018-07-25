@@ -43,7 +43,10 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     }()
     
     var cryptocurrency = Cryptocurrency.bitcoin
-    var cryptoNairaPrice: Double!
+    var cryptoNairaPrice: Double! {
+        didSet {
+                    }
+    }
     var address = ""
     
     override func viewDidLoad() {
@@ -70,9 +73,6 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {
@@ -114,7 +114,15 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
         selectionMenu.setSelectedItems(items: selectedItemArray) {
             text, isSelected, selectedItems in
             selectedItemArray = selectedItems
+            if let cryptocurrency = selectedItems[0].cryptocurrency() {
+                self.cryptocurrency = cryptocurrency
+                self.amountView.selectCurrencyButton.setTitle(selectedItems[0], for: .normal)
+                self.fetchAvailableBalance()
+                self.fetchCryptoIndex()
+            }
+            
         }
+        
         selectionMenu.show(style: .Popover(sourceView: sender, size: CGSize(width: 100, height: 180)), from: self)
     }
     
@@ -205,6 +213,24 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
             guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
            let availableBalance = Double(confirmedBalance)! - Double(fee)!
             self.availableBalanceLabel.text = String(availableBalance)
+        }
+    }
+    
+    func fetchCryptoIndex() {
+        let cryptoIndexQuery = CryptoPriceIndexQuery(period: CryptoPeriodTypes.current, cryptocurrency: cryptocurrency)
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        ApolloManager.shared.apolloClient.fetch(query: cryptoIndexQuery) {
+            result, error in
+            loadingVC.remove()
+            if let error = error {
+                print(error)
+                self.displayErrorModal(error: error.localizedDescription)
+            }
+            guard let priceData = result?.data else {print("Could not retreive prices"); return}
+          self.cryptoNairaPrice =   Double(priceData.cryptoPriceIndex?.values?.first??.rate ?? "0")!
+            self.amountView.cryptoNairaPrice = self.cryptoNairaPrice
+            self.amountView.cryptocurrency = self.cryptocurrency
         }
     }
     
