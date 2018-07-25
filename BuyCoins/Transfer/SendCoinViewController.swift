@@ -45,7 +45,7 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     var cryptocurrency = Cryptocurrency.bitcoin
     var cryptoNairaPrice: Double! {
         didSet {
-                    }
+        }
     }
     var address = ""
     
@@ -61,14 +61,14 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         cardView.isHidden = true
         backgroundView = view.resizableSnapshotView(from: view.bounds, afterScreenUpdates: true, withCapInsets: .zero)
         cardView.isHidden = false
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,7 +79,7 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
         validator.validate(self)
     }
     
-
+    
     
     @IBAction func onMaxAmountButtonTap(_ sender: UIButton) {
         guard let walletData = walletData else {return}
@@ -88,14 +88,14 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
         
         
         if availableBalance > 0.0 {
-           // amountTextField.text = String(availableBalance)
+            // amountTextField.text = String(availableBalance)
         }
     }
     
     @IBAction func onCloseButtonTap(_ sender: UIButton) {
         dismiss(animated: true)
     }
-
+    
     @IBAction func onScanButtonTouch(_ sender: UIButton) {
         readerVC.delegate = self
         present(readerVC, animated: true)
@@ -110,7 +110,7 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
         }
         
         var selectedItemArray = [String.cryptocurrency(cryptocurrency)]
-    
+        
         selectionMenu.setSelectedItems(items: selectedItemArray) {
             text, isSelected, selectedItems in
             selectedItemArray = selectedItems
@@ -129,7 +129,7 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         if let address = CryptoAddressValidator.init(result.value, crypto: cryptocurrency).getAddress() {
             reader.stopScanning()
-
+            
             reader.dismiss(animated: true)
             walletAddressTextField.text = address
         }
@@ -162,140 +162,146 @@ class SendCoinViewController: UIViewController, CardView, ValidationDelegate, QR
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
         for (textfield, _) in errors {
             if let txt = textfield as? UITextField {
-                txt.layer.borderColor = UIColor.red.cgColor
-                txt.layer.borderWidth = 1
+                if txt.tag == 2 {
+                    amountView.contentView.layer.borderColor = UIColor.red.cgColor
+                }
+                else {
+                    txt.layer.borderColor = UIColor.red.cgColor
+                    txt.layer.borderWidth = 0.5
+                    
+                }
             }
         }
     }
-    
-    func setupLabels() {
-        currencyLabel.setCryptoCurrency(cryptoCurrency: cryptocurrency)
-        walletAddressTextField.text = address
-        amountView.textField.placeholder = "0.00 " + String.cryptocurrency(cryptocurrency)
-    }
-    
-    func setupTextFieldValidation() {
-        validator.registerField(walletAddressTextField, rules: [RequiredRule()])
-        validator.registerField(amountView.textField, rules: [RequiredRule(), FloatRule()])
-    }
-    
-    func presentConfirmation() {
-        let address = walletAddressTextField.text!
-        let amount = amountView.cryptoAmount
-        let networkFeeQuery = NetworkFeeQuery(amount: String(amount), address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
-        ApolloManager.shared.apolloClient.fetch(query: networkFeeQuery, cachePolicy: .returnCacheDataAndFetch) {
-            result, error in
-            if let error = error {
-                print(error)
-                self.displayErrorModal(error: error.localizedDescription)
+        
+        func setupLabels() {
+            currencyLabel.setCryptoCurrency(cryptoCurrency: cryptocurrency)
+            walletAddressTextField.text = address
+            amountView.textField.placeholder = "0.00 " + String.cryptocurrency(cryptocurrency)
+        }
+        
+        func setupTextFieldValidation() {
+            validator.registerField(walletAddressTextField, rules: [RequiredRule()])
+            validator.registerField(amountView.textField, rules: [RequiredRule(), FloatRule()])
+        }
+        
+        func presentConfirmation() {
+            let address = walletAddressTextField.text!
+            let amount = amountView.cryptoAmount
+            let networkFeeQuery = NetworkFeeQuery(amount: String(amount), address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
+            ApolloManager.shared.apolloClient.fetch(query: networkFeeQuery, cachePolicy: .returnCacheDataAndFetch) {
+                result, error in
+                if let error = error {
+                    print(error)
+                    self.displayErrorModal(error: error.localizedDescription)
+                }
+                guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
+                let transferRequest = TransferRequest(walletAddress: address, amount: String(amount), cryptocurrency: self.cryptocurrency, otp: nil, cryptoNairaPrice: self.cryptoNairaPrice, fee: fee)
+                if let confirmationVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIDs.ReviewSendScene) as? ReviewSendViewController {
+                    confirmationVC.transferRequest = transferRequest
+                    confirmationVC.transitioningDelegate = self
+                    self.present(confirmationVC, animated: true)
+                    //navigationController?.pushViewController(confirmationVC, animated: true)
+                }
             }
-            guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
-            let transferRequest = TransferRequest(walletAddress: address, amount: String(amount), cryptocurrency: self.cryptocurrency, otp: nil, cryptoNairaPrice: self.cryptoNairaPrice, fee: fee)
-            if let confirmationVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIDs.ReviewSendScene) as? ReviewSendViewController {
-                confirmationVC.transferRequest = transferRequest
-                confirmationVC.transitioningDelegate = self
-                self.present(confirmationVC, animated: true)
-                //navigationController?.pushViewController(confirmationVC, animated: true)
+            
+        }
+        
+        func fetchNetworkMaxNetworkFee() {
+            guard let confirmedBalance = walletData?.currentUser?.wallet?.confirmedBalance else {return}
+            let networkFeeQuery = NetworkFeeQuery(amount: confirmedBalance, address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
+            ApolloManager.shared.apolloClient.fetch(query: networkFeeQuery, cachePolicy: .returnCacheDataAndFetch) {
+                result, error in
+                if let error = error {
+                    print(error)
+                    self.displayErrorModal(error: error.localizedDescription)
+                }
+                guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
+                let availableBalance = Double(confirmedBalance)! - Double(fee)!
+                self.availableBalanceLabel.text = String(availableBalance)
             }
         }
         
-    }
-    
-    func fetchNetworkMaxNetworkFee() {
-        guard let confirmedBalance = walletData?.currentUser?.wallet?.confirmedBalance else {return}
-        let networkFeeQuery = NetworkFeeQuery(amount: confirmedBalance, address: TestCryptoAddress.address(cryptocurrency), cryptocurrency: cryptocurrency)
-        ApolloManager.shared.apolloClient.fetch(query: networkFeeQuery, cachePolicy: .returnCacheDataAndFetch) {
-            result, error in
-            if let error = error {
-                print(error)
-                self.displayErrorModal(error: error.localizedDescription)
+        func fetchCryptoIndex() {
+            let cryptoIndexQuery = CryptoPriceIndexQuery(period: CryptoPeriodTypes.current, cryptocurrency: cryptocurrency)
+            let loadingVC = LoadingViewController()
+            add(loadingVC)
+            ApolloManager.shared.apolloClient.fetch(query: cryptoIndexQuery) {
+                result, error in
+                loadingVC.remove()
+                if let error = error {
+                    print(error)
+                    self.displayErrorModal(error: error.localizedDescription)
+                }
+                guard let priceData = result?.data else {print("Could not retreive prices"); return}
+                self.cryptoNairaPrice =   Double(priceData.cryptoPriceIndex?.values?.first??.rate ?? "0")!
+                self.amountView.cryptoNairaPrice = self.cryptoNairaPrice
+                self.amountView.cryptocurrency = self.cryptocurrency
             }
-            guard let fee = result?.data?.getEstimatedNetworkFee?.estimatedFee else {return}
-           let availableBalance = Double(confirmedBalance)! - Double(fee)!
-            self.availableBalanceLabel.text = String(availableBalance)
         }
-    }
-    
-    func fetchCryptoIndex() {
-        let cryptoIndexQuery = CryptoPriceIndexQuery(period: CryptoPeriodTypes.current, cryptocurrency: cryptocurrency)
-        let loadingVC = LoadingViewController()
-        add(loadingVC)
-        ApolloManager.shared.apolloClient.fetch(query: cryptoIndexQuery) {
-            result, error in
-            loadingVC.remove()
-            if let error = error {
-                print(error)
-                self.displayErrorModal(error: error.localizedDescription)
+        
+        func fetchAvailableBalance() {
+            let walletBalanceQuery = WalletBalanceQuery(cryptocurrency: cryptocurrency)
+            ApolloManager.shared.apolloClient.fetch(query: walletBalanceQuery, cachePolicy: .returnCacheDataAndFetch) {
+                result, error in
+                if let error = error {
+                    print(error)
+                    self.displayErrorModal(error: error.localizedDescription)
+                }
+                self.walletData = result?.data
             }
-            guard let priceData = result?.data else {print("Could not retreive prices"); return}
-          self.cryptoNairaPrice =   Double(priceData.cryptoPriceIndex?.values?.first??.rate ?? "0")!
-            self.amountView.cryptoNairaPrice = self.cryptoNairaPrice
-            self.amountView.cryptocurrency = self.cryptocurrency
         }
     }
     
-    func fetchAvailableBalance() {
-        let walletBalanceQuery = WalletBalanceQuery(cryptocurrency: cryptocurrency)
-        ApolloManager.shared.apolloClient.fetch(query: walletBalanceQuery, cachePolicy: .returnCacheDataAndFetch) {
-            result, error in
-            if let error = error {
-                print(error)
-                self.displayErrorModal(error: error.localizedDescription)
+    extension SendCoinViewController: UIViewControllerTransitioningDelegate {
+        func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            
+            if let destinationVC = presented as? ReviewSendViewController {
+                slideAnimator.backgroundView = backgroundView
+                slideAnimator.originCardView = cardView
+                slideAnimator.destinationCardView = destinationVC.cardView
+                return slideAnimator
+                
             }
-            self.walletData = result?.data
+            else {
+                return nil
+            }
         }
-    }
-}
-
-extension SendCoinViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        if let destinationVC = presented as? ReviewSendViewController {
-            slideAnimator.backgroundView = backgroundView
-            slideAnimator.originCardView = cardView
-            slideAnimator.destinationCardView = destinationVC.cardView
-            return slideAnimator
-
-        }
-        else {
+        
+        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            if let vc = dismissed as? ReviewSendViewController {
+                let cardDismissalAnimator = CardDismissalAnimator()
+                cardDismissalAnimator.originCardView = vc.cardView
+                cardDismissalAnimator.destinationCardView = cardView
+                cardDismissalAnimator.backgroundView = backgroundView
+                return cardDismissalAnimator
+            }
             return nil
         }
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let vc = dismissed as? ReviewSendViewController {
-            let cardDismissalAnimator = CardDismissalAnimator()
-            cardDismissalAnimator.originCardView = vc.cardView
-            cardDismissalAnimator.destinationCardView = cardView
-            cardDismissalAnimator.backgroundView = backgroundView
-            return cardDismissalAnimator
-        }
-        return nil
-    }
-}
-
-extension UILabel {
-    func setCryptoCurrency(cryptoCurrency: Cryptocurrency) {
-        var cryptoString = ""
-        switch cryptoCurrency {
-        case .bitcoinCash:
-            cryptoString = "BCH"
-        case .bitcoin:
-            cryptoString = "BTC"
-        case .ethereum:
-            cryptoString = "ETH"
-        case .litecoin:
-            cryptoString = "LTC"
+    extension UILabel {
+        func setCryptoCurrency(cryptoCurrency: Cryptocurrency) {
+            var cryptoString = ""
+            switch cryptoCurrency {
+            case .bitcoinCash:
+                cryptoString = "BCH"
+            case .bitcoin:
+                cryptoString = "BTC"
+            case .ethereum:
+                cryptoString = "ETH"
+            case .litecoin:
+                cryptoString = "LTC"
+                
+            default:
+                break
+            }
             
-        default:
-            break
+            if self.text != nil && self.text! != "" {
+                self.text = " " + cryptoString
+            }
+            else {
+                self.text = cryptoString
+            }
         }
-        
-        if self.text != nil && self.text! != "" {
-            self.text = " " + cryptoString
-        }
-        else {
-            self.text = cryptoString
-        }
-    }
 }

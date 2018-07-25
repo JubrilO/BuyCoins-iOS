@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
         <array key="Graphik-Regular.ttf">
             <string>Graphik-Regular</string>
-        </array>
-        <array key="graphik-medium-webfont.ttf">
-            <string>Graphik-Medium</string>
         </array>
         <array key="graphik-semibold-webfont.ttf">
             <string>Graphik-Semibold</string>
@@ -37,7 +37,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-nx-XAy">
+                <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-nx-XAy">
                     <rect key="frame" x="16" y="16" width="252" height="23"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="16"/>
@@ -64,7 +64,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tS-Ff-xCI">
-                    <rect key="frame" x="283" y="16" width="42" height="20"/>
+                    <rect key="frame" x="283" y="16" width="42" height="14"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="e9G-uv-lGm"/>
                     </constraints>
