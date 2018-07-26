@@ -20,6 +20,7 @@ struct Constants {
         static let WalletAddressScene = "WalletAddressScene"
         static let SelectCurrencyScene = "SelectCurrencyScene"
         static let EnterAmountScene = "EnterAmountScene"
+        static let CreateAccountScene = "CreateAccountScene"
     }
     
     struct StoryboardNames {

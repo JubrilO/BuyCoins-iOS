@@ -47,6 +47,7 @@ class SignInViewController: UIViewController {
         for field in textFields {
             field.titleFormatter = { $0.capitalized }
             field.titleFont = UIFont.textFieldTitleFont
+            field.font = UIFont.bcFontRegular(size: 14)
             field.setTitleVisible(true)
         }
     }

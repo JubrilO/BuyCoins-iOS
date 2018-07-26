@@ -26,6 +26,8 @@
 		9127E11F20B433EC00CCC255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E11E20B433EC00CCC255 /* SignInViewController.swift */; };
 		9127E12220B439E100CCC255 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12120B439E100CCC255 /* Extensions.swift */; };
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
+		913321632108CBBF00504FE1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913321622108CBBF00504FE1 /* CreateAccountViewController.swift */; };
+		913321652109416D00504FE1 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913321642109416D00504FE1 /* SignupRequest.swift */; };
 		9136EC7420FCCE420029F695 /* SelectCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136EC7320FCCE420029F695 /* SelectCurrencyViewController.swift */; };
 		91392ED020E59DE1006FCE4B /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ECF20E59DE1006FCE4B /* TransferRequest.swift */; };
 		91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */; };
@@ -92,6 +94,8 @@
 		9127E11E20B433EC00CCC255 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9127E12120B439E100CCC255 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
+		913321622108CBBF00504FE1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		913321642109416D00504FE1 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		9136EC7320FCCE420029F695 /* SelectCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyViewController.swift; sourceTree = "<group>"; };
 		91392ECF20E59DE1006FCE4B /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
 		91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddressViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +238,6 @@
 				91A089CB20BEECAE0077892D /* Dashboard.graphql */,
 				910A806620D2A6AB00A63C9F /* WalletLanding.graphql */,
 				9164C81A20E26B590055C98A /* SendCoin.graphql */,
-				915AFB1720B55AB200052D7B /* Auth Scenes */,
 				91392ED320E6E15E006FCE4B /* WalletAddress.graphql */,
 				917D786420FD52810008EA95 /* TradeCoin.graphql */,
 			);
@@ -244,9 +247,12 @@
 		915AFB1720B55AB200052D7B /* Auth Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				91AE11B720B3D6EB00C0A878 /* Auth.storyboard */,
 				91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */,
 				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
 				915CB64120B5B4CB0040C631 /* VerifyViewController.swift */,
+				913321622108CBBF00504FE1 /* CreateAccountViewController.swift */,
+				913321642109416D00504FE1 /* SignupRequest.swift */,
 			);
 			path = "Auth Scenes";
 			sourceTree = "<group>";
@@ -320,11 +326,11 @@
 		91AE11B220B3D6EB00C0A878 /* BuyCoins */ = {
 			isa = PBXGroup;
 			children = (
-				919A96AA20FF8BA800482DD4 /* Transitions */,
 				910A806820DA84EC00A63C9F /* API.swift */,
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
-				91AE11B720B3D6EB00C0A878 /* Auth.storyboard */,
 				915385E420BEDEDF00F1488C /* schema.json */,
+				915AFB1720B55AB200052D7B /* Auth Scenes */,
+				919A96AA20FF8BA800482DD4 /* Transitions */,
 				9161BE9E20FCCC2C00D272C1 /* Trade */,
 				915E5CA320E0A26B001967A8 /* Transfer */,
 				915385E320BEDE8000F1488C /* GraphQL */,
@@ -548,6 +554,7 @@
 				919A96B42103979400482DD4 /* CardSlideUpAnimator.swift in Sources */,
 				91165F5A20B566B9007F622D /* APIConstants.swift in Sources */,
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
+				913321652109416D00504FE1 /* SignupRequest.swift in Sources */,
 				919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */,
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
@@ -560,6 +567,7 @@
 				9136EC7420FCCE420029F695 /* SelectCurrencyViewController.swift in Sources */,
 				91AE11B420B3D6EB00C0A878 /* AppDelegate.swift in Sources */,
 				914E7D3E20EF62ED000976C5 /* LoadingViewController.swift in Sources */,
+				913321632108CBBF00504FE1 /* CreateAccountViewController.swift in Sources */,
 				919A96AE20FFA41200482DD4 /* CardViewProtocol.swift in Sources */,
 				910C393620D1512400CC3DE7 /* WalletPagerCell.swift in Sources */,
 				919A96AC20FF8BDA00482DD4 /* CardPresentationAnimator.swift in Sources */,
