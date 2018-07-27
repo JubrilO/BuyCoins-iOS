@@ -31,7 +31,13 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var dayDataButton: UIButton!
     
     weak var axisFormatDelegate: IAxisValueFormatter?
-    var graphTimePeriod = CryptoPeriodTypes.month
+    var graphTimePeriod = CryptoPeriodTypes.month {
+        didSet{
+            if graphTimePeriod != oldValue {
+                updatePrices()
+            }
+        }
+    }
     
     let apollo: ApolloClient = {
         let configuration = URLSessionConfiguration.default
@@ -57,8 +63,7 @@ class OverviewViewController: UIViewController {
         super.viewWillAppear(animated)
         axisFormatDelegate = self
         priceChart.delegate = self
-        updatePrices()
-        fetchWalletData()
+
     }
     
     @IBAction func onBuyCoinsButtonTap(_ sender: UIButton) {
@@ -85,16 +90,19 @@ class OverviewViewController: UIViewController {
     }
     
     @IBAction func onMonthButtonTap(_ sender: UIButton) {
+        graphTimePeriod = .month
         deselectAllDataButtons()
         setupPeriodButtonSelectedState(sender)
     }
     
     @IBAction func onWeekButtonTap(_ sender: UIButton) {
+        graphTimePeriod = .week
         deselectAllDataButtons()
         setupPeriodButtonSelectedState(sender)
     }
     
     @IBAction func onDayButtonTap(_ sender: UIButton) {
+        graphTimePeriod = .day
         deselectAllDataButtons()
         setupPeriodButtonSelectedState(sender)
     }
@@ -120,16 +128,16 @@ class OverviewViewController: UIViewController {
     func updatePrices() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            fetchGraphPrices(cryptoCurrency: .bitcoin)
+            fetchGraphPrices(period: graphTimePeriod, cryptoCurrency: .bitcoin)
             updateCurrentPrice(.bitcoin)
         case 1:
-            fetchGraphPrices(cryptoCurrency: .ethereum)
+            fetchGraphPrices(period: graphTimePeriod, cryptoCurrency: .ethereum)
             updateCurrentPrice(.ethereum)
         case 2:
-            fetchGraphPrices(cryptoCurrency: .litecoin)
+            fetchGraphPrices(period: graphTimePeriod, cryptoCurrency: .litecoin)
             updateCurrentPrice(.litecoin)
         case 3:
-            fetchGraphPrices(cryptoCurrency: .bitcoinCash)
+            fetchGraphPrices(period: graphTimePeriod, cryptoCurrency: .bitcoinCash)
             updateCurrentPrice(.bitcoinCash)
         default:
             break
@@ -302,7 +310,8 @@ class OverviewViewController: UIViewController {
         let data = LineChartData()
         data.addDataSet(line1)
         priceChart.data = data
-        priceChart.animate(yAxisDuration: 1)
+
+        priceChart.animate(yAxisDuration: 0.7)
     }
 }
 

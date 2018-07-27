@@ -559,6 +559,17 @@ open class LineChartRenderer: LineRadarRenderer
                         }
                         
                         if dataSet.isDrawValuesEnabled {
+                            let text = formatter.stringForValue(
+                                e.y,
+                                entry: e,
+                                dataSetIndex: i,
+                                viewPortHandler: viewPortHandler)
+                            let attr = [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 12.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)]
+                            let textSize = text.size(withAttributes: attr)
+                            if (pt.x + textSize.width) > viewPortHandler.chartWidth {
+                                pt.x = viewPortHandler.chartWidth - textSize.width - 1.0
+                            }
+                            
                             drawText(
                                 context: context,
                                 text: formatter.stringForValue(
@@ -569,8 +580,8 @@ open class LineChartRenderer: LineRadarRenderer
                                 point: CGPoint(
                                     x: pt.x,
                                     y: pt.y - CGFloat(valOffset) - valueFont.lineHeight),
-                                align: .right,
-                                attributes: [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 11.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)])
+                                align: NSTextAlignment.left,
+                                attributes: [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 12.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)])
                         }
                         
                         if let icon = e.icon, dataSet.isDrawIconsEnabled
