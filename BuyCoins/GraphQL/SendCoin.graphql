@@ -4,9 +4,23 @@ mutation SendCoin($amount: BigDecimal, $cryptocurrency: Cryptocurrency, $address
     }
 }
 
+mutation SendOTP($call: Boolean){
+    sendOtp(call: $call){
+        username
+    }
+}
+
 query NetworkFee($amount: BigDecimal!, $address: String!, $cryptocurrency: Cryptocurrency) {
     getEstimatedNetworkFee(amount: $amount, address: $address, cryptocurrency: $cryptocurrency) {
         estimatedFee
         total
     }
 }
+
+query OTPStatus {
+    currentUser {
+        phone
+        twoFactorAuthentication
+        twoFactorType
+    }
+} 

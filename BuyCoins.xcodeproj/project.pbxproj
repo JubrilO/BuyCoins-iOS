@@ -13,6 +13,8 @@
 		910C393120D14F2F00CC3DE7 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C393020D14F2F00CC3DE7 /* WalletViewController.swift */; };
 		910C393620D1512400CC3DE7 /* WalletPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C393520D1512400CC3DE7 /* WalletPagerCell.swift */; };
 		910C393820D1515700CC3DE7 /* WalletPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910C393720D1515700CC3DE7 /* WalletPagerCell.xib */; };
+		9110A562211078B900E22240 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9110A561211078B900E22240 /* OTPViewController.swift */; };
+		911195812112072A005A0CA9 /* HBSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911195802112072A005A0CA9 /* HBSegmentedControl.swift */; };
 		91165F5820B5665C007F622D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5720B5665C007F622D /* APIManager.swift */; };
 		91165F5A20B566B9007F622D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5920B566B9007F622D /* APIConstants.swift */; };
 		91165F5E20B56929007F622D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91165F5D20B56929007F622D /* User.swift */; };
@@ -81,6 +83,8 @@
 		910C393020D14F2F00CC3DE7 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		910C393520D1512400CC3DE7 /* WalletPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPagerCell.swift; sourceTree = "<group>"; };
 		910C393720D1515700CC3DE7 /* WalletPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletPagerCell.xib; sourceTree = "<group>"; };
+		9110A561211078B900E22240 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		911195802112072A005A0CA9 /* HBSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSegmentedControl.swift; sourceTree = "<group>"; };
 		91165F5720B5665C007F622D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		91165F5920B566B9007F622D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		91165F5D20B56929007F622D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				9178116320F8F71C00080431 /* BCAmountTextField.xib */,
 				9178116520F8FEFC00080431 /* BCAmountTextField.swift */,
 				917491C320FE123600EA3EA6 /* PopoverCell */,
+				9110A561211078B900E22240 /* OTPViewController.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				91165F5C20B56910007F622D /* Model */,
 				91165F5B20B566C0007F622D /* Networking */,
 				9127E12020B439C400CCC255 /* Supporting */,
+				911195802112072A005A0CA9 /* HBSegmentedControl.swift */,
 				91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */,
 				91AE11BF20B3D6EB00C0A878 /* Info.plist */,
 			);
@@ -547,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919A96B221023B1B00482DD4 /* CardDismissalAnimator.swift in Sources */,
+				911195812112072A005A0CA9 /* HBSegmentedControl.swift in Sources */,
 				917D786120FCEC180008EA95 /* SelectCurrencyCell.swift in Sources */,
 				910A806520D28ED200A63C9F /* WalletTransactionCell.swift in Sources */,
 				91165F5820B5665C007F622D /* APIManager.swift in Sources */,
@@ -558,6 +565,7 @@
 				919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */,
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
+				9110A562211078B900E22240 /* OTPViewController.swift in Sources */,
 				912733A520E4B205008D7A7A /* ReviewSendViewController.swift in Sources */,
 				91165F5E20B56929007F622D /* User.swift in Sources */,
 				91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */,

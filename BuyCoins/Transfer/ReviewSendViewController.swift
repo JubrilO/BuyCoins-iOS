@@ -46,23 +46,113 @@ class ReviewSendViewController: UIViewController, CardView {
     }
     
     @IBAction func onSendButtonTap(_ sender: UIButton) {
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        getOTPStatus {
+            sendOtp, error in
+            guard error == nil else {
+                loadingVC.remove()
+                self.displayErrorModal(error: error)
+                return
+            }
+            
+            if sendOtp {
+                self.sendOTP {
+                    sent in
+                    loadingVC.remove()
+                    sent ? self.presentOTPScene() : self.displayErrorModal(error: "Could not send OTP")
+                }
+            }
+            else {
+                self.sendCoin {
+                    loadingVC.remove()
+                }
+            }
+        }
+    }
+    
+    func presentOTPScene() {
+        if let otpVC =  storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIDs.OTPScene) as? OTPViewController {
+            otpVC.transitioningDelegate = self
+            present(otpVC, animated: true, completion: nil)
+        }
+    }
+    
+    func sendCoin(completion: @escaping () ->() ) {
         let sendCoinMutation = SendCoinMutation(amount: transferRequest.amount, cryptocurrency: transferRequest.cryptocurrency, address: transferRequest.walletAddress, otp: transferRequest.otp)
+        
         ApolloManager.shared.apolloClient.perform(mutation: sendCoinMutation) {
             result, error in
+            completion()
             guard let sendCoinsAction =  result?.data?.sendCoins else {
                 self.displayErrorModal(error: error?.localizedDescription)
                 return
             }
             if sendCoinsAction.initiated {
                 print("Dismiss Send Coin Modal")
-                self.dismiss(animated: true)
             }
             else {
                 print("Send action not initiated!")
+            }
+        }
+    }
+    
+    func getOTPStatus(completion: @escaping (Bool, String?) -> ()) {
+        let otpStatusQuery = OtpStatusQuery()
+        ApolloManager.shared.apolloClient.fetch(query: otpStatusQuery) {
+            result, error in
+            guard let currentUser = result?.data?.currentUser else {
+                self.displayErrorModal(error: error?.localizedDescription)
+                completion(false, error?.localizedDescription)
+                return
+            }
+            if currentUser.twoFactorAuthentication! && currentUser.twoFactorType! == .sms {
+                completion(true, nil)
+            }
+            else {
+                completion(false, nil)
             }
             
         }
     }
     
+    func sendOTP(completion: @escaping (Bool) -> () ) {
+        let sentOTPMutation = SendOtpMutation(call: true)
+        ApolloManager.shared.apolloClient.perform(mutation: sentOTPMutation) {
+            result, error in
+            guard let _ =  result?.data?.sendOtp?.username else {
+                self.displayErrorModal(error: error?.localizedDescription)
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
+}
+
+extension ReviewSendViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let dismissedVC = dismissed as? ReviewSendViewController {
+            let cardDismissalAnimator = CardDismissalAnimator()
+            cardDismissalAnimator.originCardView = dismissedVC.cardView
+            cardDismissalAnimator.destinationCardView = cardView
+            let backgroundView = BackgroundView()
+            backgroundView.frame = view.frame
+            cardDismissalAnimator.backgroundView = backgroundView
+            return cardDismissalAnimator
+        }
+        return nil
+    }
     
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let destinationVC = presented as? OTPViewController {
+            let slideAnimator = CardPresentationAnimator()
+            let backgroundView = BackgroundView()
+            backgroundView.frame = view.frame
+            slideAnimator.originCardView = cardView
+            slideAnimator.destinationCardView = destinationVC.cardView
+            return slideAnimator
+        }
+            return nil
+    }
 }

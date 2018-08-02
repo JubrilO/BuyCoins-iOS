@@ -86,6 +86,40 @@ public enum Cryptocurrency: RawRepresentable, Equatable, Apollo.JSONDecodable, A
   }
 }
 
+/// Possible types for 2FA
+public enum TwoFactorType: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case sms
+  case googleAuthenticator
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "sms": self = .sms
+      case "google_authenticator": self = .googleAuthenticator
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .sms: return "sms"
+      case .googleAuthenticator: return "google_authenticator"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: TwoFactorType, rhs: TwoFactorType) -> Bool {
+    switch (lhs, rhs) {
+      case (.sms, .sms): return true
+      case (.googleAuthenticator, .googleAuthenticator): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
 /// Possible types of transactions
 public enum TransactionType: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
@@ -472,6 +506,85 @@ public final class SendCoinMutation: GraphQLMutation {
   }
 }
 
+public final class SendOtpMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation SendOTP($call: Boolean) {\n  sendOtp(call: $call) {\n    __typename\n    username\n  }\n}"
+
+  public var call: Bool?
+
+  public init(call: Bool? = nil) {
+    self.call = call
+  }
+
+  public var variables: GraphQLMap? {
+    return ["call": call]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("sendOtp", arguments: ["call": GraphQLVariable("call")], type: .object(SendOtp.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(sendOtp: SendOtp? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "sendOtp": sendOtp.flatMap { (value: SendOtp) -> Snapshot in value.snapshot }])
+    }
+
+    public var sendOtp: SendOtp? {
+      get {
+        return (snapshot["sendOtp"] as? Snapshot).flatMap { SendOtp(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "sendOtp")
+      }
+    }
+
+    public struct SendOtp: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(username: String) {
+        self.init(snapshot: ["__typename": "User", "username": username])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var username: String {
+        get {
+          return snapshot["username"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "username")
+        }
+      }
+    }
+  }
+}
+
 public final class NetworkFeeQuery: GraphQLQuery {
   public static let operationString =
     "query NetworkFee($amount: BigDecimal!, $address: String!, $cryptocurrency: Cryptocurrency) {\n  getEstimatedNetworkFee(amount: $amount, address: $address, cryptocurrency: $cryptocurrency) {\n    __typename\n    estimatedFee\n    total\n  }\n}"
@@ -559,6 +672,98 @@ public final class NetworkFeeQuery: GraphQLQuery {
         }
         set {
           snapshot.updateValue(newValue, forKey: "total")
+        }
+      }
+    }
+  }
+}
+
+public final class OtpStatusQuery: GraphQLQuery {
+  public static let operationString =
+    "query OTPStatus {\n  currentUser {\n    __typename\n    phone\n    twoFactorAuthentication\n    twoFactorType\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("currentUser", type: .object(CurrentUser.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(currentUser: CurrentUser? = nil) {
+      self.init(snapshot: ["__typename": "Query", "currentUser": currentUser.flatMap { (value: CurrentUser) -> Snapshot in value.snapshot }])
+    }
+
+    public var currentUser: CurrentUser? {
+      get {
+        return (snapshot["currentUser"] as? Snapshot).flatMap { CurrentUser(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "currentUser")
+      }
+    }
+
+    public struct CurrentUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("phone", type: .scalar(String.self)),
+        GraphQLField("twoFactorAuthentication", type: .scalar(Bool.self)),
+        GraphQLField("twoFactorType", type: .scalar(TwoFactorType.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(phone: String? = nil, twoFactorAuthentication: Bool? = nil, twoFactorType: TwoFactorType? = nil) {
+        self.init(snapshot: ["__typename": "User", "phone": phone, "twoFactorAuthentication": twoFactorAuthentication, "twoFactorType": twoFactorType])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var phone: String? {
+        get {
+          return snapshot["phone"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "phone")
+        }
+      }
+
+      public var twoFactorAuthentication: Bool? {
+        get {
+          return snapshot["twoFactorAuthentication"] as? Bool
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "twoFactorAuthentication")
+        }
+      }
+
+      public var twoFactorType: TwoFactorType? {
+        get {
+          return snapshot["twoFactorType"] as? TwoFactorType
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "twoFactorType")
         }
       }
     }

@@ -565,23 +565,20 @@ open class LineChartRenderer: LineRadarRenderer
                                 dataSetIndex: i,
                                 viewPortHandler: viewPortHandler)
                             let attr = [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 12.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)]
-                            let textSize = text.size(withAttributes: attr)
+                            let formattedTxt = Double(text)!.withCommas() + " NGN"
+                            let textSize = formattedTxt.size(withAttributes: attr)
                             if (pt.x + textSize.width) > viewPortHandler.chartWidth {
-                                pt.x = viewPortHandler.chartWidth - textSize.width - 1.0
+                                pt.x = viewPortHandler.contentWidth - textSize.width - 10
                             }
                             
                             drawText(
                                 context: context,
-                                text: formatter.stringForValue(
-                                    e.y,
-                                    entry: e,
-                                    dataSetIndex: i,
-                                    viewPortHandler: viewPortHandler),
+                                text: formattedTxt,
                                 point: CGPoint(
                                     x: pt.x,
                                     y: pt.y - CGFloat(valOffset) - valueFont.lineHeight),
                                 align: NSTextAlignment.left,
-                                attributes: [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 12.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)])
+                                attributes: [NSAttributedStringKey.font: UIFont(name: "Graphik-Regular", size: 11.0)!, NSAttributedStringKey.foregroundColor: dataSet.valueTextColorAt(j)])
                         }
                         
                         if let icon = e.icon, dataSet.isDrawIconsEnabled
@@ -601,6 +598,7 @@ open class LineChartRenderer: LineRadarRenderer
     func drawText(context: CGContext, text: String, point: CGPoint, align: NSTextAlignment, attributes: [NSAttributedStringKey : Any]?)
     {
         var point = point
+        point.y -= 6
         
         if align == .center
         {
@@ -610,18 +608,24 @@ open class LineChartRenderer: LineRadarRenderer
         {
             point.x -= text.size(withAttributes: attributes).width
         }
-    
+        
         NSUIGraphicsPushContext(context)
-//        let textRect = CGRect(origin: CGPoint(x: point.x, y: point.y), size: text.size(withAttributes: attributes))
-//        let backgroundRect = CGRect(x: point.x, y: point.y, width: textRect.width + 35, height: textRect.height + 10)
-//        let textPath = UIBezierPath(rect: backgroundRect)
-//        UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 0.8).setFill()
-//        textPath.fill()
-//        //context.saveGState()
-//        context.clip(to: textRect)
-        (text as NSString).draw(at: point, withAttributes: attributes)
-        //(text as NSString).draw(in: backgroundRect, withAttributes: attributes)
+        let textRect = CGRect(origin: CGPoint(x: point.x, y: point.y), size: text.size(withAttributes: attributes))
+        let backgroundRect = CGRect(x: point.x, y: point.y, width: textRect.width + 10, height: textRect.height + 10)
+        let textPath = UIBezierPath(roundedRect: backgroundRect, cornerRadius: 4)
+        UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1).setFill()
+        textPath.fill()
+        context.saveGState()
+        context.clip(to: backgroundRect)
+        //(text as NSString).draw(at: point, withAttributes: attributes)
+        let newRect = CGRect(x: backgroundRect.origin.x + 5, y: backgroundRect.origin.y + 5, width: textRect.size.width, height: textRect.size.height)
+        (text as NSString).draw(in: newRect, withAttributes: attributes)
+        context.restoreGState()
+
         NSUIGraphicsPopContext()
+        
+        
+        
     }
     
     open override func drawExtras(context: CGContext)
@@ -790,5 +794,50 @@ open class LineChartRenderer: LineRadarRenderer
         }
         
         context.restoreGState()
+    }
+}
+
+extension Double {
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = .current
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        if floor(self) == self {
+            numberFormatter.minimumFractionDigits = 0
+        }
+        else {
+            numberFormatter.minimumFractionDigits = 2
+        }
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.usesGroupingSeparator = true
+        return numberFormatter.string(from: NSNumber(value:self))!
+    }
+    
+    func roundToPlaces(_ places : Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self.rounded() * divisor) / divisor
+    }
+    
+    func formatPoints() -> String {
+        var thousandNum = self / 1_000
+        var millionNum = self / 1_000_000
+        if  self >= 1_000 && self < 1_000_000 {
+            if  floor(thousandNum) == thousandNum {
+                return("\(Int(thousandNum))k")
+            }
+            return("\(thousandNum.roundToPlaces(2))k")
+        }
+        if  self > 1_000_000 {
+            if  floor(millionNum) == millionNum {
+                return "\(Int(thousandNum))k"
+            }
+            return "\(millionNum.roundToPlaces(2))M"
+        }
+        else{
+            if  floor(self) == self {
+                return "\(Int(self))"
+            }
+            return "\(self)"
+        }
     }
 }

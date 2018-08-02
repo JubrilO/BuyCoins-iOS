@@ -13,6 +13,8 @@ import Charts
 
 class OverviewViewController: UIViewController {
     
+    @IBOutlet weak var dateTitleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceChart: LineChartView!
     @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var cryptoCurrencyLabel: UILabel!
@@ -24,7 +26,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var ltcWalletBalanceNairaLabel: UILabel!
     @IBOutlet weak var bchWalletBalanceLabel: UILabel!
     @IBOutlet weak var bchWalletBalanceNairaLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: HBSegmentedControl!
     @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var monthDataButton: UIButton!
     @IBOutlet weak var weekDataButton: UIButton!
@@ -51,12 +53,14 @@ class OverviewViewController: UIViewController {
             return ApolloClient(url: url)
         }
     }()
+    var prices = [CryptoPriceIndexQuery.Data.CryptoPriceIndex.Value?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBarImage()
         updatePrices()
         fetchWalletData()
+        setupSegmentedControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +68,17 @@ class OverviewViewController: UIViewController {
         axisFormatDelegate = self
         priceChart.delegate = self
 
+    }
+    
+    func setupSegmentedControl() {
+        segmentedControl.items = ["BTC", "ETH", "LTC", "BCH"]
+        segmentedControl.borderColor = .clear
+        segmentedControl.selectedLabelColor = .white
+        segmentedControl.unselectedLabelColor = .bcPurple
+        segmentedControl.backgroundColor = .clear
+        segmentedControl.thumbColor = .bcPurple
+        segmentedControl.selectedIndex = 0
+        segmentedControl.addTarget(self, action: #selector(onSegmentedControlValueChanged), for: .valueChanged)
     }
     
     @IBAction func onBuyCoinsButtonTap(_ sender: UIButton) {
@@ -107,7 +122,7 @@ class OverviewViewController: UIViewController {
         setupPeriodButtonSelectedState(sender)
     }
     
-    @IBAction func onSegmentedControlValueChanged(_ sender: UISegmentedControl, forEvent event: UIEvent) {
+    @objc func onSegmentedControlValueChanged(_ sender: UISegmentedControl, forEvent event: UIEvent) {
             updatePrices()
     }
     
@@ -126,7 +141,7 @@ class OverviewViewController: UIViewController {
     }
     
     func updatePrices() {
-        switch segmentedControl.selectedSegmentIndex {
+        switch segmentedControl.selectedIndex{
         case 0:
             fetchGraphPrices(period: graphTimePeriod, cryptoCurrency: .bitcoin)
             updateCurrentPrice(.bitcoin)
@@ -176,6 +191,7 @@ class OverviewViewController: UIViewController {
                 return
                 
             }
+            self.prices = prices
             self.currentPriceLabel.text = Double(prices.first!!.rate!)!.withCommas() + " NGN"
             switch cryptoCurrency {
             case .bitcoin:
@@ -306,10 +322,13 @@ class OverviewViewController: UIViewController {
         line1.fillAlpha = 0.5
         line1.fillColor = UIColor.bcPurple
         line1.mode = .horizontalBezier
+        line1.drawHorizontalHighlightIndicatorEnabled = false
+        line1.highlightColor = UIColor.bcPurple
         
         let data = LineChartData()
         data.addDataSet(line1)
         priceChart.data = data
+        priceChart.highlightPerTapEnabled = false
 
         priceChart.animate(yAxisDuration: 0.7)
     }
@@ -333,5 +352,23 @@ extension OverviewViewController: IAxisValueFormatter {
 }
 
 extension OverviewViewController: ChartViewDelegate {
+
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        chartView.data?.setDrawValues(false)
+        dateTitleLabel.text = "Price as at"
+        let date =  Date(timeIntervalSince1970: highlight.x)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mma | d MMM yyyy"
+        dateLabel.text = dateFormatter.string(from: date)
+        currentPriceLabel.text = highlight.y.withCommas() + " NGN"
+        
+    }
     
+    func panGestureEnded(_ chartView: ChartViewBase) {
+        chartView.data?.setDrawValues(true)
+        chartView.highlightValues(nil)
+        dateLabel.text = ""
+        dateTitleLabel.text = "Current rate"
+        currentPriceLabel.text = Double(prices.first!!.rate!)!.withCommas() + " NGN"
+    }
 }

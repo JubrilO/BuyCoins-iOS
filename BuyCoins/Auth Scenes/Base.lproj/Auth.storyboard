@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -459,6 +459,7 @@
                                                     <constraint firstItem="j7b-hf-oDB" firstAttribute="top" secondItem="CUL-Fz-wHy" secondAttribute="bottom" constant="20" id="ZHy-xu-EZt"/>
                                                     <constraint firstItem="VpL-cW-gQl" firstAttribute="leading" secondItem="Rbr-Dm-JS8" secondAttribute="leading" constant="30" id="ej6-iy-ads"/>
                                                     <constraint firstItem="8Vt-NZ-sYf" firstAttribute="centerX" secondItem="Rbr-Dm-JS8" secondAttribute="centerX" id="hyI-vn-wun"/>
+                                                    <constraint firstItem="j7b-hf-oDB" firstAttribute="top" secondItem="CUL-Fz-wHy" secondAttribute="bottom" constant="20" id="r8A-O5-8z5"/>
                                                     <constraint firstItem="8Vt-NZ-sYf" firstAttribute="top" secondItem="j7b-hf-oDB" secondAttribute="bottom" constant="20" id="vBx-An-dQd"/>
                                                     <constraint firstAttribute="trailing" secondItem="mtn-HC-uOU" secondAttribute="trailing" constant="30" id="xux-Cn-wGE"/>
                                                 </constraints>
@@ -533,7 +534,7 @@
             <objects>
                 <viewController storyboardIdentifier="CreateAccountScene" id="Zcj-bX-v2F" customClass="CreateAccountViewController" customModule="BuyCoins" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mwc-w3-UVR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVD-xC-7OI">
@@ -555,13 +556,13 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nE3-hM-LPM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="730"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0V-0C-caF">
-                                <rect key="frame" x="0.0" y="20" width="375" height="730"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is8-Vx-qrK">
-                                        <rect key="frame" x="18" y="100" width="339" height="534"/>
+                                        <rect key="frame" x="18" y="100" width="339" height="526"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yz6-vY-TH6" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                 <rect key="frame" x="30" y="181" width="279" height="51"/>
@@ -669,7 +670,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CC-6b-gNN">
-                                                <rect key="frame" x="35" y="408" width="20" height="22"/>
+                                                <rect key="frame" x="30" y="404" width="30" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="Jey-75-Skb"/>
                                                 </constraints>
@@ -704,7 +705,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Olz-ee-OHy">
-                                                <rect key="frame" x="69.5" y="454" width="200" height="50"/>
+                                                <rect key="frame" x="69.5" y="446" width="200" height="50"/>
                                                 <color key="backgroundColor" red="0.58823529409999997" green="0.43529411759999997" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="fHz-bV-Gfb"/>
