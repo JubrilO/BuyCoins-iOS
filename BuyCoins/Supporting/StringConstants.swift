@@ -22,6 +22,7 @@ struct Constants {
         static let EnterAmountScene = "EnterAmountScene"
         static let CreateAccountScene = "CreateAccountScene"
         static let OTPScene = "OTPScene"
+        static let verifyEmailScene = "verifyEmailScene"
     }
     
     struct StoryboardNames {

@@ -13,12 +13,14 @@ import SwiftyJSON
 class APIManager {
     static let sharedManager = APIManager()
     
-    func createUser(firsname: String, lastname: String, email: String, password: String, username: String, completionHandler: @escaping (User?, Error?) -> () ) {
+    func createUser(firsname: String, lastname: String, email: String, password: String, username: String, dob: String,completionHandler: @escaping (User?, Error?) -> () ) {
         let parameters = [
             "first_name" : firsname,
             "last_name" : lastname,
             "email" : email,
-            "password" : password
+            "password" : password,
+            "username" : username,
+            "date_of_birth" : dob
             ] as [String : Any]
         
         Alamofire.request(APIConstants.SignUpUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {

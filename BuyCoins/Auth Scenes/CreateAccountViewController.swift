@@ -21,6 +21,10 @@ class CreateAccountViewController: UIViewController, ValidationDelegate {
     
     var signUpRequest: SignUpRequest!
     let validator = Validator()
+    let loadingVC = LoadingViewController()
+    let slideInCardAnimator = CardPresentationAnimator()
+    var backgroundView: UIView?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,14 @@ class CreateAccountViewController: UIViewController, ValidationDelegate {
         setupTextFieldValidation()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        cardView.isHidden = true
+        backgroundView = view.resizableSnapshotView(from: view.bounds, afterScreenUpdates: true, withCapInsets: .zero)
+        cardView.isHidden = false
+    }
+    
     @IBAction func onCreateAccountButtonTap(_ sender: UIButton) {
+        add(loadingVC)
         validator.validate(self)
     }
     
@@ -52,7 +63,27 @@ class CreateAccountViewController: UIViewController, ValidationDelegate {
     }
     
     func validationSuccessful() {
-        
+        APIManager.sharedManager.createUser(firsname: signUpRequest.firstname, lastname: signUpRequest.lastName, email: emailTextField.text!, password: passwordTextField.text!, username: usernameTextField.text!, dob: signUpRequest.dob) {
+            user, error in
+            self.loadingVC.remove()
+            
+            guard error != nil else {
+                self.displayErrorModal(error: error?.localizedDescription)
+                return
+            }
+            
+            if let _ = user {
+                self.presentEmailValidationScreen()
+            }
+            
+        }
+    }
+    
+    func presentEmailValidationScreen() {
+        if let verifyEmailVC = storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIDs.verifyEmailScene) as? VerifyViewController {
+            verifyEmailVC.transitioningDelegate = self
+            present(verifyEmailVC, animated: true)
+        }
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
@@ -63,6 +94,21 @@ class CreateAccountViewController: UIViewController, ValidationDelegate {
             }
         }
     }
+}
+
+extension CreateAccountViewController: UIViewControllerTransitioningDelegate {
     
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let vc = presented as? VerifyViewController {
+            slideInCardAnimator.backgroundView = backgroundView
+            slideInCardAnimator.originCardView = cardView
+            slideInCardAnimator.destinationCardView = vc.cardView
+            return slideInCardAnimator
+        }
+        return nil
+    }
     
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
 }
