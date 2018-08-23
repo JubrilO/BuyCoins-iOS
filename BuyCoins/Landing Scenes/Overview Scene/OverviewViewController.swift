@@ -67,7 +67,6 @@ class OverviewViewController: UIViewController {
         super.viewWillAppear(animated)
         axisFormatDelegate = self
         priceChart.delegate = self
-
     }
     
     func setupSegmentedControl() {
@@ -87,7 +86,6 @@ class OverviewViewController: UIViewController {
             selectCurrencyVC.tradeType = .buy
             present(selectCurrencyVC, animated: true)
         }
-    
     }
     
     @IBAction func onSellCoinsButtonTap(_ sender: UIButton) {
@@ -99,6 +97,7 @@ class OverviewViewController: UIViewController {
     }
     
     @IBAction func onGetStartedButtonTap(_ sender: UIButton) {
+        
     }
     
     @IBAction func onWalletDetailsButtonTap(_ sender: UIButton) {

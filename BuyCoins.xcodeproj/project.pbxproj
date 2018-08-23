@@ -72,6 +72,8 @@
 		91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */; };
 		91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */; };
 		91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */; };
+		91D48E54211E71E100FABCFB /* TabBarSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */; };
+		91D48E56211E727400FABCFB /* SlidingTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48E55211E727400FABCFB /* SlidingTabBarController.swift */; };
 		F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +146,8 @@
 		91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
 		91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressValidator.swift; sourceTree = "<group>"; };
 		91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCryptoAddress.swift; sourceTree = "<group>"; };
+		91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSlideAnimator.swift; sourceTree = "<group>"; };
+		91D48E55211E727400FABCFB /* SlidingTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabBarController.swift; sourceTree = "<group>"; };
 		9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.release.xcconfig"; sourceTree = "<group>"; };
 		D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +310,7 @@
 				919A96B121023B1B00482DD4 /* CardDismissalAnimator.swift */,
 				919A96B32103979400482DD4 /* CardSlideUpAnimator.swift */,
 				919A96B52103A10000482DD4 /* CardSlideDownAnimator.swift */,
+				91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				911195802112072A005A0CA9 /* HBSegmentedControl.swift */,
 				91AE11BC20B3D6EB00C0A878 /* LaunchScreen.storyboard */,
 				91AE11BF20B3D6EB00C0A878 /* Info.plist */,
+				91D48E55211E727400FABCFB /* SlidingTabBarController.swift */,
 			);
 			path = BuyCoins;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 				9164C81920E0ACC70055C98A /* BCBorderedTextField.swift in Sources */,
 				919A96B42103979400482DD4 /* CardSlideUpAnimator.swift in Sources */,
 				91165F5A20B566B9007F622D /* APIConstants.swift in Sources */,
+				91D48E54211E71E100FABCFB /* TabBarSlideAnimator.swift in Sources */,
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
 				913321652109416D00504FE1 /* SignupRequest.swift in Sources */,
 				919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */,
@@ -589,6 +596,7 @@
 				912733A320E490F9008D7A7A /* ApolloManager.swift in Sources */,
 				910C393120D14F2F00CC3DE7 /* WalletViewController.swift in Sources */,
 				91392ED020E59DE1006FCE4B /* TransferRequest.swift in Sources */,
+				91D48E56211E727400FABCFB /* SlidingTabBarController.swift in Sources */,
 				91165F6220B572FB007F622D /* StringConstants.swift in Sources */,
 				91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */,
 				91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */,

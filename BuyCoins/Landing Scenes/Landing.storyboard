@@ -51,42 +51,42 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WC8-dp-hkB">
-                                                        <rect key="frame" x="0.0" y="96" width="339" height="1"/>
+                                                        <rect key="frame" x="0.0" y="108" width="339" height="1"/>
                                                         <color key="backgroundColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.63921568627450975" alpha="0.25" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="hdx-i9-Q78"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULZ-zT-1ej">
-                                                        <rect key="frame" x="20" y="117" width="68.5" height="12"/>
+                                                        <rect key="frame" x="20" y="129" width="68.5" height="12"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
                                                         <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 NGN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEY-4a-HXG">
-                                                        <rect key="frame" x="20" y="139" width="84.5" height="20"/>
+                                                        <rect key="frame" x="20" y="151" width="84.5" height="20"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" / BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-3Y-JZd">
-                                                        <rect key="frame" x="104.5" y="139" width="56" height="20"/>
+                                                        <rect key="frame" x="104.5" y="151" width="56" height="20"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="arrow-down" translatesAutoresizingMaskIntoConstraints="NO" id="97H-jn-C3K">
-                                                        <rect key="frame" x="165.5" y="141.5" width="16" height="16"/>
+                                                        <rect key="frame" x="165.5" y="153.5" width="16" height="16"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-ao-iDA">
-                                                        <rect key="frame" x="20" y="173" width="299" height="1"/>
+                                                        <rect key="frame" x="20" y="185" width="299" height="1"/>
                                                         <color key="backgroundColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="0.25" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Oaj-eZ-HgW"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjm-ih-iDW" customClass="LineChartView" customModule="Charts">
-                                                        <rect key="frame" x="20" y="194" width="299" height="251"/>
+                                                        <rect key="frame" x="20" y="206" width="299" height="239"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MC1-KF-Pae">
@@ -148,13 +148,13 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2c-TD-mYa">
-                                                        <rect key="frame" x="96.5" y="123" width="0.0" height="0.0"/>
+                                                        <rect key="frame" x="96.5" y="135" width="0.0" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
                                                         <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-TS-p8G" customClass="HBSegmentedControl" customModule="BuyCoins" customModuleProvider="target">
-                                                        <rect key="frame" x="31" y="48" width="240" height="44"/>
+                                                        <rect key="frame" x="20" y="54" width="299" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="ROd-oA-3Ob"/>
@@ -946,10 +946,10 @@
             </objects>
             <point key="canvasLocation" x="1015.2" y="-100.29985007496252"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Sliding Tab Bar Controller-->
         <scene sceneID="RSo-iL-PCs">
             <objects>
-                <tabBarController storyboardIdentifier="LandingTabBar" id="zcn-0z-quf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LandingTabBar" id="zcn-0z-quf" customClass="SlidingTabBarController" customModule="BuyCoins" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A7e-0F-T15">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
