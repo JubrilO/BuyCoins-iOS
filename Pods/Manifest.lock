@@ -11,11 +11,11 @@ PODS:
   - Locksmith (4.0.0)
   - QRCode (2.0)
   - QRCodeReader.swift (8.2.0)
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - RealmSwift (3.10.0):
+    - Realm (= 3.10.0)
   - RSSelectionMenu (4.0)
   - SkyFloatingLabelTextField (3.4.1)
   - SwiftValidator (4.0.0)
@@ -30,7 +30,7 @@ DEPENDENCIES:
   - Locksmith
   - QRCode
   - QRCodeReader.swift (~> 8.2.0)
-  - RealmSwift
+  - RealmSwift (from `https://github.com/realm/realm-cocoa`, branch `master`)
   - RSSelectionMenu
   - SkyFloatingLabelTextField (~> 3.4.1)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
@@ -47,17 +47,22 @@ SPEC REPOS:
     - QRCode
     - QRCodeReader.swift
     - Realm
-    - RealmSwift
     - RSSelectionMenu
     - SkyFloatingLabelTextField
     - SwiftyJSON
 
 EXTERNAL SOURCES:
+  RealmSwift:
+    :branch: master
+    :git: https://github.com/realm/realm-cocoa
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 CHECKOUT OPTIONS:
+  RealmSwift:
+    :commit: 3282429aa8dd1f3b49177f226ca402810cda1766
+    :git: https://github.com/realm/realm-cocoa
   SwiftValidator:
     :commit: ba27b0e501bf542b5c1a97bed8f706d12fb2d4f4
     :git: https://github.com/jpotts18/SwiftValidator.git
@@ -71,13 +76,13 @@ SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
   RSSelectionMenu: 6029e6927ffc94d84244b686f95c91f92a926a7f
   SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: edfcc13cb0115c5df9115f3e4ac7db1eefb85eba
+PODFILE CHECKSUM: 9e7e4c0fcaeca2b64b63fa8da2a1b52e3e146467
 
 COCOAPODS: 1.5.2

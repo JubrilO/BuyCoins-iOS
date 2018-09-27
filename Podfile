@@ -8,7 +8,7 @@ use_frameworks!
   # Pods for BuyCoins
 	pod 'SkyFloatingLabelTextField', '~> 3.4.1'
 	pod 'Alamofire', '~> 4.7'
-	pod 'RealmSwift'
+    pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa', :branch => 'master'
     pod 'Charts'
     pod 'FSPagerView'
 	pod 'Apollo'
