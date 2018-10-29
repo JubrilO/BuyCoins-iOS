@@ -30,6 +30,7 @@
 		9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9127E12320B43EC100CCC255 /* BCTextField.swift */; };
 		913321632108CBBF00504FE1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913321622108CBBF00504FE1 /* CreateAccountViewController.swift */; };
 		913321652109416D00504FE1 /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913321642109416D00504FE1 /* SignupRequest.swift */; };
+		913352AB2180BA86002A00BF /* TradeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913352AA2180BA86002A00BF /* TradeHistoryViewController.swift */; };
 		9136EC7420FCCE420029F695 /* SelectCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136EC7320FCCE420029F695 /* SelectCurrencyViewController.swift */; };
 		91392ED020E59DE1006FCE4B /* TransferRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ECF20E59DE1006FCE4B /* TransferRequest.swift */; };
 		91392ED220E67F97006FCE4B /* WalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */; };
@@ -70,6 +71,7 @@
 		91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */; };
 		91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */; };
 		91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */; };
+		91B1B2F12180C76000DD28F9 /* OrderHistory.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 91B1B2F02180C76000DD28F9 /* OrderHistory.graphql */; };
 		91C0890620EDA9250078E6A5 /* CryptoAddressValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */; };
 		91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */; };
 		91D48E54211E71E100FABCFB /* TabBarSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */; };
@@ -102,6 +104,7 @@
 		9127E12320B43EC100CCC255 /* BCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTextField.swift; sourceTree = "<group>"; };
 		913321622108CBBF00504FE1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		913321642109416D00504FE1 /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		913352AA2180BA86002A00BF /* TradeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistoryViewController.swift; sourceTree = "<group>"; };
 		9136EC7320FCCE420029F695 /* SelectCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyViewController.swift; sourceTree = "<group>"; };
 		91392ECF20E59DE1006FCE4B /* TransferRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRequest.swift; sourceTree = "<group>"; };
 		91392ED120E67F97006FCE4B /* WalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddressViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		91AE11C720B3E22200C0A878 /* Graphik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Medium.ttf"; sourceTree = "<group>"; };
 		91AE11C820B3E22200C0A878 /* Graphik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Bold.ttf"; sourceTree = "<group>"; };
 		91AE11C920B3E22200C0A878 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
+		91B1B2F02180C76000DD28F9 /* OrderHistory.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = OrderHistory.graphql; sourceTree = "<group>"; };
 		91C0890520EDA9250078E6A5 /* CryptoAddressValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAddressValidator.swift; sourceTree = "<group>"; };
 		91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCryptoAddress.swift; sourceTree = "<group>"; };
 		91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSlideAnimator.swift; sourceTree = "<group>"; };
@@ -230,6 +234,14 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		913352A92180BA65002A00BF /* Trade History */ = {
+			isa = PBXGroup;
+			children = (
+				913352AA2180BA86002A00BF /* TradeHistoryViewController.swift */,
+			);
+			path = "Trade History";
+			sourceTree = "<group>";
+		};
 		915385DF20BD644500F1488C /* Landing Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +260,7 @@
 				9164C81A20E26B590055C98A /* SendCoin.graphql */,
 				91392ED320E6E15E006FCE4B /* WalletAddress.graphql */,
 				917D786420FD52810008EA95 /* TradeCoin.graphql */,
+				91B1B2F02180C76000DD28F9 /* OrderHistory.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -285,6 +298,7 @@
 		9161BE9E20FCCC2C00D272C1 /* Trade */ = {
 			isa = PBXGroup;
 			children = (
+				913352A92180BA65002A00BF /* Trade History */,
 				9161BE9F20FCCC6700D272C1 /* Trade.storyboard */,
 				9136EC7320FCCE420029F695 /* SelectCurrencyViewController.swift */,
 				917D786020FCEC180008EA95 /* SelectCurrencyCell.swift */,
@@ -459,6 +473,7 @@
 				91AE11CB20B3E22200C0A878 /* Graphik-Medium.ttf in Resources */,
 				9127318620FE091000B44B70 /* PopoverCell.xib in Resources */,
 				91AE11BE20B3D6EB00C0A878 /* LaunchScreen.storyboard in Resources */,
+				91B1B2F12180C76000DD28F9 /* OrderHistory.graphql in Resources */,
 				910C393820D1515700CC3DE7 /* WalletPagerCell.xib in Resources */,
 				91AE11BB20B3D6EB00C0A878 /* Assets.xcassets in Resources */,
 				91AE11CC20B3E22200C0A878 /* Graphik-Bold.ttf in Resources */,
@@ -570,6 +585,7 @@
 				91AE11B620B3D6EB00C0A878 /* SignUpViewController.swift in Sources */,
 				913321652109416D00504FE1 /* SignupRequest.swift in Sources */,
 				919A96B62103A10000482DD4 /* CardSlideDownAnimator.swift in Sources */,
+				913352AB2180BA86002A00BF /* TradeHistoryViewController.swift in Sources */,
 				915CB64420B5C7630040C631 /* BCError.swift in Sources */,
 				9127E12420B43EC100CCC255 /* BCTextField.swift in Sources */,
 				9110A562211078B900E22240 /* OTPViewController.swift in Sources */,

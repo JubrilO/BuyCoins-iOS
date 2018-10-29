@@ -9,8 +9,8 @@
 import Foundation
 
 struct APIConstants {
-    static let BaseUrl = "https://bitkoin-dev.herokuapp.com/api/v1"
-    static let GraphqlUrl = "https://bitkoin-dev.herokuapp.com/graphql"
+    static let BaseUrl = "https://bitkoin.herokuapp.com/api/v1"
+    static let GraphqlUrl = "https://bitkoin.herokuapp.com/graphql"
     static let AuthUrl = BaseUrl + "/tokens?buycoins=true"
     static let SignUpUrl = BaseUrl + "/users"
 }
