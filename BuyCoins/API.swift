@@ -48,18 +48,18 @@ public enum CryptoPeriodTypes: RawRepresentable, Equatable, Apollo.JSONDecodable
 public enum Cryptocurrency: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case bitcoin
-  case litecoin
-  case ethereum
   case bitcoinCash
+  case ethereum
+  case litecoin
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
   public init?(rawValue: RawValue) {
     switch rawValue {
       case "bitcoin": self = .bitcoin
-      case "litecoin": self = .litecoin
-      case "ethereum": self = .ethereum
       case "bitcoin_cash": self = .bitcoinCash
+      case "ethereum": self = .ethereum
+      case "litecoin": self = .litecoin
       default: self = .__unknown(rawValue)
     }
   }
@@ -67,9 +67,9 @@ public enum Cryptocurrency: RawRepresentable, Equatable, Apollo.JSONDecodable, A
   public var rawValue: RawValue {
     switch self {
       case .bitcoin: return "bitcoin"
-      case .litecoin: return "litecoin"
-      case .ethereum: return "ethereum"
       case .bitcoinCash: return "bitcoin_cash"
+      case .ethereum: return "ethereum"
+      case .litecoin: return "litecoin"
       case .__unknown(let value): return value
     }
   }
@@ -77,9 +77,115 @@ public enum Cryptocurrency: RawRepresentable, Equatable, Apollo.JSONDecodable, A
   public static func == (lhs: Cryptocurrency, rhs: Cryptocurrency) -> Bool {
     switch (lhs, rhs) {
       case (.bitcoin, .bitcoin): return true
-      case (.litecoin, .litecoin): return true
-      case (.ethereum, .ethereum): return true
       case (.bitcoinCash, .bitcoinCash): return true
+      case (.ethereum, .ethereum): return true
+      case (.litecoin, .litecoin): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
+/// Possible statuses for an Order
+public enum OrderStatus: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case done
+  case pending
+  case failed
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "done": self = .done
+      case "pending": self = .pending
+      case "failed": self = .failed
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .done: return "done"
+      case .pending: return "pending"
+      case .failed: return "failed"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: OrderStatus, rhs: OrderStatus) -> Bool {
+    switch (lhs, rhs) {
+      case (.done, .done): return true
+      case (.pending, .pending): return true
+      case (.failed, .failed): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
+/// Possible sides for an Order
+public enum OrderSide: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case buy
+  case sell
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "buy": self = .buy
+      case "sell": self = .sell
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .buy: return "buy"
+      case .sell: return "sell"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: OrderSide, rhs: OrderSide) -> Bool {
+    switch (lhs, rhs) {
+      case (.buy, .buy): return true
+      case (.sell, .sell): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+}
+
+/// Possible directions for payment
+public enum PaymentDirection: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case incoming
+  case outgoing
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "incoming": self = .incoming
+      case "outgoing": self = .outgoing
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .incoming: return "incoming"
+      case .outgoing: return "outgoing"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: PaymentDirection, rhs: PaymentDirection) -> Bool {
+    switch (lhs, rhs) {
+      case (.incoming, .incoming): return true
+      case (.outgoing, .outgoing): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -130,6 +236,8 @@ public enum TransactionType: RawRepresentable, Equatable, Apollo.JSONDecodable, 
   case buycoinsSell
   case buycoinsBuy
   case buycoinsChange
+  case toBridge
+  case fromBridge
   /// Auto generated constant for unknown enum values
   case __unknown(RawValue)
 
@@ -142,6 +250,8 @@ public enum TransactionType: RawRepresentable, Equatable, Apollo.JSONDecodable, 
       case "buycoins_sell": self = .buycoinsSell
       case "buycoins_buy": self = .buycoinsBuy
       case "buycoins_change": self = .buycoinsChange
+      case "to_bridge": self = .toBridge
+      case "from_bridge": self = .fromBridge
       default: self = .__unknown(rawValue)
     }
   }
@@ -155,6 +265,8 @@ public enum TransactionType: RawRepresentable, Equatable, Apollo.JSONDecodable, 
       case .buycoinsSell: return "buycoins_sell"
       case .buycoinsBuy: return "buycoins_buy"
       case .buycoinsChange: return "buycoins_change"
+      case .toBridge: return "to_bridge"
+      case .fromBridge: return "from_bridge"
       case .__unknown(let value): return value
     }
   }
@@ -168,6 +280,8 @@ public enum TransactionType: RawRepresentable, Equatable, Apollo.JSONDecodable, 
       case (.buycoinsSell, .buycoinsSell): return true
       case (.buycoinsBuy, .buycoinsBuy): return true
       case (.buycoinsChange, .buycoinsChange): return true
+      case (.toBridge, .toBridge): return true
+      case (.fromBridge, .fromBridge): return true
       case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
       default: return false
     }
@@ -414,6 +528,488 @@ public final class WalletQuery: GraphQLQuery {
           }
           set {
             snapshot.updateValue(newValue, forKey: "cryptocurrency")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class OrdersQuery: GraphQLQuery {
+  public static let operationString =
+    "query Orders($status: OrderStatus) {\n  currentUser {\n    __typename\n    orders(status: $status, last: 30) {\n      __typename\n      edges {\n        __typename\n        node {\n          __typename\n          status\n          createdAt\n          side\n          cryptocurrency\n          coinAmount\n          settled\n          buycoinsPrice {\n            __typename\n            buyPricePerCoin\n            sellPricePerCoin\n          }\n          payment {\n            __typename\n            amount\n            direction\n            reference\n          }\n          buyTransaction {\n            __typename\n            amount\n            direction\n          }\n          sellTransaction {\n            __typename\n            amount\n            direction\n          }\n        }\n      }\n    }\n  }\n}"
+
+  public var status: OrderStatus?
+
+  public init(status: OrderStatus? = nil) {
+    self.status = status
+  }
+
+  public var variables: GraphQLMap? {
+    return ["status": status]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("currentUser", type: .object(CurrentUser.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(currentUser: CurrentUser? = nil) {
+      self.init(snapshot: ["__typename": "Query", "currentUser": currentUser.flatMap { (value: CurrentUser) -> Snapshot in value.snapshot }])
+    }
+
+    public var currentUser: CurrentUser? {
+      get {
+        return (snapshot["currentUser"] as? Snapshot).flatMap { CurrentUser(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "currentUser")
+      }
+    }
+
+    public struct CurrentUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("orders", arguments: ["status": GraphQLVariable("status"), "last": 30], type: .object(Order.selections)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(orders: Order? = nil) {
+        self.init(snapshot: ["__typename": "User", "orders": orders.flatMap { (value: Order) -> Snapshot in value.snapshot }])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var orders: Order? {
+        get {
+          return (snapshot["orders"] as? Snapshot).flatMap { Order(snapshot: $0) }
+        }
+        set {
+          snapshot.updateValue(newValue?.snapshot, forKey: "orders")
+        }
+      }
+
+      public struct Order: GraphQLSelectionSet {
+        public static let possibleTypes = ["OrderConnection"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("edges", type: .list(.object(Edge.selections))),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        public init(edges: [Edge?]? = nil) {
+          self.init(snapshot: ["__typename": "OrderConnection", "edges": edges.flatMap { (value: [Edge?]) -> [Snapshot?] in value.map { (value: Edge?) -> Snapshot? in value.flatMap { (value: Edge) -> Snapshot in value.snapshot } } }])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// A list of edges.
+        public var edges: [Edge?]? {
+          get {
+            return (snapshot["edges"] as? [Snapshot?]).flatMap { (value: [Snapshot?]) -> [Edge?] in value.map { (value: Snapshot?) -> Edge? in value.flatMap { (value: Snapshot) -> Edge in Edge(snapshot: value) } } }
+          }
+          set {
+            snapshot.updateValue(newValue.flatMap { (value: [Edge?]) -> [Snapshot?] in value.map { (value: Edge?) -> Snapshot? in value.flatMap { (value: Edge) -> Snapshot in value.snapshot } } }, forKey: "edges")
+          }
+        }
+
+        public struct Edge: GraphQLSelectionSet {
+          public static let possibleTypes = ["OrderEdge"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("node", type: .object(Node.selections)),
+          ]
+
+          public var snapshot: Snapshot
+
+          public init(snapshot: Snapshot) {
+            self.snapshot = snapshot
+          }
+
+          public init(node: Node? = nil) {
+            self.init(snapshot: ["__typename": "OrderEdge", "node": node.flatMap { (value: Node) -> Snapshot in value.snapshot }])
+          }
+
+          public var __typename: String {
+            get {
+              return snapshot["__typename"]! as! String
+            }
+            set {
+              snapshot.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The item at the end of the edge.
+          public var node: Node? {
+            get {
+              return (snapshot["node"] as? Snapshot).flatMap { Node(snapshot: $0) }
+            }
+            set {
+              snapshot.updateValue(newValue?.snapshot, forKey: "node")
+            }
+          }
+
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes = ["Order"]
+
+            public static let selections: [GraphQLSelection] = [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("status", type: .nonNull(.scalar(OrderStatus.self))),
+              GraphQLField("createdAt", type: .nonNull(.scalar(Int.self))),
+              GraphQLField("side", type: .nonNull(.scalar(OrderSide.self))),
+              GraphQLField("cryptocurrency", type: .nonNull(.scalar(String.self))),
+              GraphQLField("coinAmount", type: .scalar(String.self)),
+              GraphQLField("settled", type: .nonNull(.scalar(Bool.self))),
+              GraphQLField("buycoinsPrice", type: .object(BuycoinsPrice.selections)),
+              GraphQLField("payment", type: .object(Payment.selections)),
+              GraphQLField("buyTransaction", type: .object(BuyTransaction.selections)),
+              GraphQLField("sellTransaction", type: .object(SellTransaction.selections)),
+            ]
+
+            public var snapshot: Snapshot
+
+            public init(snapshot: Snapshot) {
+              self.snapshot = snapshot
+            }
+
+            public init(status: OrderStatus, createdAt: Int, side: OrderSide, cryptocurrency: String, coinAmount: String? = nil, settled: Bool, buycoinsPrice: BuycoinsPrice? = nil, payment: Payment? = nil, buyTransaction: BuyTransaction? = nil, sellTransaction: SellTransaction? = nil) {
+              self.init(snapshot: ["__typename": "Order", "status": status, "createdAt": createdAt, "side": side, "cryptocurrency": cryptocurrency, "coinAmount": coinAmount, "settled": settled, "buycoinsPrice": buycoinsPrice.flatMap { (value: BuycoinsPrice) -> Snapshot in value.snapshot }, "payment": payment.flatMap { (value: Payment) -> Snapshot in value.snapshot }, "buyTransaction": buyTransaction.flatMap { (value: BuyTransaction) -> Snapshot in value.snapshot }, "sellTransaction": sellTransaction.flatMap { (value: SellTransaction) -> Snapshot in value.snapshot }])
+            }
+
+            public var __typename: String {
+              get {
+                return snapshot["__typename"]! as! String
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var status: OrderStatus {
+              get {
+                return snapshot["status"]! as! OrderStatus
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "status")
+              }
+            }
+
+            public var createdAt: Int {
+              get {
+                return snapshot["createdAt"]! as! Int
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "createdAt")
+              }
+            }
+
+            public var side: OrderSide {
+              get {
+                return snapshot["side"]! as! OrderSide
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "side")
+              }
+            }
+
+            public var cryptocurrency: String {
+              get {
+                return snapshot["cryptocurrency"]! as! String
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "cryptocurrency")
+              }
+            }
+
+            public var coinAmount: String? {
+              get {
+                return snapshot["coinAmount"] as? String
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "coinAmount")
+              }
+            }
+
+            public var settled: Bool {
+              get {
+                return snapshot["settled"]! as! Bool
+              }
+              set {
+                snapshot.updateValue(newValue, forKey: "settled")
+              }
+            }
+
+            public var buycoinsPrice: BuycoinsPrice? {
+              get {
+                return (snapshot["buycoinsPrice"] as? Snapshot).flatMap { BuycoinsPrice(snapshot: $0) }
+              }
+              set {
+                snapshot.updateValue(newValue?.snapshot, forKey: "buycoinsPrice")
+              }
+            }
+
+            public var payment: Payment? {
+              get {
+                return (snapshot["payment"] as? Snapshot).flatMap { Payment(snapshot: $0) }
+              }
+              set {
+                snapshot.updateValue(newValue?.snapshot, forKey: "payment")
+              }
+            }
+
+            public var buyTransaction: BuyTransaction? {
+              get {
+                return (snapshot["buyTransaction"] as? Snapshot).flatMap { BuyTransaction(snapshot: $0) }
+              }
+              set {
+                snapshot.updateValue(newValue?.snapshot, forKey: "buyTransaction")
+              }
+            }
+
+            public var sellTransaction: SellTransaction? {
+              get {
+                return (snapshot["sellTransaction"] as? Snapshot).flatMap { SellTransaction(snapshot: $0) }
+              }
+              set {
+                snapshot.updateValue(newValue?.snapshot, forKey: "sellTransaction")
+              }
+            }
+
+            public struct BuycoinsPrice: GraphQLSelectionSet {
+              public static let possibleTypes = ["BuycoinsPrice"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("buyPricePerCoin", type: .scalar(String.self)),
+                GraphQLField("sellPricePerCoin", type: .scalar(String.self)),
+              ]
+
+              public var snapshot: Snapshot
+
+              public init(snapshot: Snapshot) {
+                self.snapshot = snapshot
+              }
+
+              public init(buyPricePerCoin: String? = nil, sellPricePerCoin: String? = nil) {
+                self.init(snapshot: ["__typename": "BuycoinsPrice", "buyPricePerCoin": buyPricePerCoin, "sellPricePerCoin": sellPricePerCoin])
+              }
+
+              public var __typename: String {
+                get {
+                  return snapshot["__typename"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              /// Price per coin in naira, that users can buy from us
+              public var buyPricePerCoin: String? {
+                get {
+                  return snapshot["buyPricePerCoin"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "buyPricePerCoin")
+                }
+              }
+
+              /// Price per coin in naira, that users can sell to us
+              public var sellPricePerCoin: String? {
+                get {
+                  return snapshot["sellPricePerCoin"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "sellPricePerCoin")
+                }
+              }
+            }
+
+            public struct Payment: GraphQLSelectionSet {
+              public static let possibleTypes = ["Payment"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("amount", type: .scalar(String.self)),
+                GraphQLField("direction", type: .nonNull(.scalar(PaymentDirection.self))),
+                GraphQLField("reference", type: .scalar(String.self)),
+              ]
+
+              public var snapshot: Snapshot
+
+              public init(snapshot: Snapshot) {
+                self.snapshot = snapshot
+              }
+
+              public init(amount: String? = nil, direction: PaymentDirection, reference: String? = nil) {
+                self.init(snapshot: ["__typename": "Payment", "amount": amount, "direction": direction, "reference": reference])
+              }
+
+              public var __typename: String {
+                get {
+                  return snapshot["__typename"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var amount: String? {
+                get {
+                  return snapshot["amount"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "amount")
+                }
+              }
+
+              public var direction: PaymentDirection {
+                get {
+                  return snapshot["direction"]! as! PaymentDirection
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "direction")
+                }
+              }
+
+              public var reference: String? {
+                get {
+                  return snapshot["reference"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "reference")
+                }
+              }
+            }
+
+            public struct BuyTransaction: GraphQLSelectionSet {
+              public static let possibleTypes = ["CryptoTransaction"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("amount", type: .scalar(String.self)),
+                GraphQLField("direction", type: .nonNull(.scalar(String.self))),
+              ]
+
+              public var snapshot: Snapshot
+
+              public init(snapshot: Snapshot) {
+                self.snapshot = snapshot
+              }
+
+              public init(amount: String? = nil, direction: String) {
+                self.init(snapshot: ["__typename": "CryptoTransaction", "amount": amount, "direction": direction])
+              }
+
+              public var __typename: String {
+                get {
+                  return snapshot["__typename"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var amount: String? {
+                get {
+                  return snapshot["amount"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "amount")
+                }
+              }
+
+              public var direction: String {
+                get {
+                  return snapshot["direction"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "direction")
+                }
+              }
+            }
+
+            public struct SellTransaction: GraphQLSelectionSet {
+              public static let possibleTypes = ["CryptoTransaction"]
+
+              public static let selections: [GraphQLSelection] = [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("amount", type: .scalar(String.self)),
+                GraphQLField("direction", type: .nonNull(.scalar(String.self))),
+              ]
+
+              public var snapshot: Snapshot
+
+              public init(snapshot: Snapshot) {
+                self.snapshot = snapshot
+              }
+
+              public init(amount: String? = nil, direction: String) {
+                self.init(snapshot: ["__typename": "CryptoTransaction", "amount": amount, "direction": direction])
+              }
+
+              public var __typename: String {
+                get {
+                  return snapshot["__typename"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var amount: String? {
+                get {
+                  return snapshot["amount"] as? String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "amount")
+                }
+              }
+
+              public var direction: String {
+                get {
+                  return snapshot["direction"]! as! String
+                }
+                set {
+                  snapshot.updateValue(newValue, forKey: "direction")
+                }
+              }
+            }
           }
         }
       }
@@ -989,7 +1585,7 @@ public final class CoinPriceQuery: GraphQLQuery {
         }
       }
 
-      /// The maximum amount of coin that can be bought with the USD we have.
+      /// The maximum amount of coin that can be bought
       public var maxBuy: String? {
         get {
           return snapshot["maxBuy"] as? String
@@ -999,7 +1595,7 @@ public final class CoinPriceQuery: GraphQLQuery {
         }
       }
 
-      /// The maximum amount of coin that can be sold based on the Naira we can currently send to users
+      /// The maximum amount of coin that can be sold
       public var maxSell: String? {
         get {
           return snapshot["maxSell"] as? String

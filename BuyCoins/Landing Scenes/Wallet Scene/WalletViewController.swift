@@ -46,6 +46,16 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
     
     var topSafeArea = CGFloat()
     var bottomSafeArea = CGFloat()
+    
+    
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
     let apollo: ApolloClient = {
         let configuration = URLSessionConfiguration.default
         let url = URL(string: APIConstants.GraphqlUrl)!
@@ -57,14 +67,6 @@ class WalletViewController: UIViewController, QRCodeReaderViewControllerDelegate
             print("Sign in user")
             return ApolloClient(url: url)
         }
-    }()
-    
-    lazy var readerVC: QRCodeReaderViewController = {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
-        }
-        
-        return QRCodeReaderViewController(builder: builder)
     }()
     
     

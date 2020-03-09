@@ -50,7 +50,6 @@ class BCBorderedTextField: UITextField {
 
     
     fileprivate func newBounds(_ bounds: CGRect) -> CGRect {
-        
         var newBounds = bounds
         newBounds.origin.x += padding.left
         newBounds.origin.y += padding.top
@@ -58,7 +57,4 @@ class BCBorderedTextField: UITextField {
         newBounds.size.width -= padding.left + padding.right
         return newBounds
     }
-    
-    
-
 }

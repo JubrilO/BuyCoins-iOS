@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Apollo
+import Locksmith
 
 extension UIColor {
     
@@ -28,6 +30,19 @@ extension UIColor {
     }
     
 }
+
+let apollo: ApolloClient = {
+    let configuration = URLSessionConfiguration.default
+    let url = URL(string: APIConstants.GraphqlUrl)!
+    if let auth = Locksmith.loadDataForUserAccount(userAccount: Constants.BCUser)?["token"] as? String {
+        configuration.httpAdditionalHeaders = ["Authorization": auth]
+        return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
+    }
+    else {
+        print("Sign in user")
+        return ApolloClient(url: url)
+    }
+}()
 
 extension Double {
     func withCommas() -> String {
@@ -109,7 +124,6 @@ extension String {
         }
     }
 }
-
 
 
 extension UIButton {

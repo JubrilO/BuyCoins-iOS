@@ -37,7 +37,6 @@
 		91392ED420E6E15E006FCE4B /* WalletAddress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 91392ED320E6E15E006FCE4B /* WalletAddress.graphql */; };
 		914E7D3E20EF62ED000976C5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */; };
 		915385E120BD648200F1488C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915385E020BD648200F1488C /* OverviewViewController.swift */; };
-		915385E520BEDEDF00F1488C /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 915385E420BEDEDF00F1488C /* schema.json */; };
 		915CB64220B5B4CB0040C631 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64120B5B4CB0040C631 /* VerifyViewController.swift */; };
 		915CB64420B5C7630040C631 /* BCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915CB64320B5C7630040C631 /* BCError.swift */; };
 		915E5CA220E0A25E001967A8 /* Transfer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915E5CA120E0A25E001967A8 /* Transfer.storyboard */; };
@@ -76,6 +75,7 @@
 		91C0890820EE88300078E6A5 /* TestCryptoAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */; };
 		91D48E54211E71E100FABCFB /* TabBarSlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */; };
 		91D48E56211E727400FABCFB /* SlidingTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48E55211E727400FABCFB /* SlidingTabBarController.swift */; };
+		91DF547C218B957E0008C93F /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 91DF547B218B957D0008C93F /* schema.json */; };
 		F6738049BA0B29968A9F92FB /* Pods_BuyCoins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432524BB77D5DA2FA7C4C523 /* Pods_BuyCoins.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +111,6 @@
 		91392ED320E6E15E006FCE4B /* WalletAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = WalletAddress.graphql; sourceTree = "<group>"; };
 		914E7D3D20EF62ED000976C5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		915385E020BD648200F1488C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
-		915385E420BEDEDF00F1488C /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		915CB64120B5B4CB0040C631 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		915CB64320B5C7630040C631 /* BCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCError.swift; sourceTree = "<group>"; };
 		915E5CA120E0A25E001967A8 /* Transfer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transfer.storyboard; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		91C0890720EE88300078E6A5 /* TestCryptoAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCryptoAddress.swift; sourceTree = "<group>"; };
 		91D48E53211E71E100FABCFB /* TabBarSlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSlideAnimator.swift; sourceTree = "<group>"; };
 		91D48E55211E727400FABCFB /* SlidingTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabBarController.swift; sourceTree = "<group>"; };
+		91DF547B218B957D0008C93F /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		9394A79757EECDBF4249DE2F /* Pods-BuyCoins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.release.xcconfig"; sourceTree = "<group>"; };
 		D0578187E3BBE2DE89A5BA27 /* Pods-BuyCoins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuyCoins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuyCoins/Pods-BuyCoins.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +268,7 @@
 		915AFB1720B55AB200052D7B /* Auth Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				919A96AA20FF8BA800482DD4 /* Transitions */,
 				91AE11B720B3D6EB00C0A878 /* Auth.storyboard */,
 				91AE11B520B3D6EB00C0A878 /* SignUpViewController.swift */,
 				9127E11E20B433EC00CCC255 /* SignInViewController.swift */,
@@ -352,9 +353,8 @@
 			children = (
 				910A806820DA84EC00A63C9F /* API.swift */,
 				91AE11B320B3D6EB00C0A878 /* AppDelegate.swift */,
-				915385E420BEDEDF00F1488C /* schema.json */,
+				91DF547B218B957D0008C93F /* schema.json */,
 				915AFB1720B55AB200052D7B /* Auth Scenes */,
-				919A96AA20FF8BA800482DD4 /* Transitions */,
 				9161BE9E20FCCC2C00D272C1 /* Trade */,
 				915E5CA320E0A26B001967A8 /* Transfer */,
 				915385E320BEDE8000F1488C /* GraphQL */,
@@ -435,6 +435,7 @@
 				TargetAttributes = {
 					91AE11AF20B3D6EB00C0A878 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -461,12 +462,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DF547C218B957E0008C93F /* schema.json in Resources */,
 				9161BEA020FCCC6700D272C1 /* Trade.storyboard in Resources */,
 				9164C81B20E26B590055C98A /* SendCoin.graphql in Resources */,
 				9164C81620E0A7710055C98A /* graphik-medium-webfont.ttf in Resources */,
 				910A806720D2A6AB00A63C9F /* WalletLanding.graphql in Resources */,
 				91AE11CA20B3E22200C0A878 /* Graphik-Regular.ttf in Resources */,
-				915385E520BEDEDF00F1488C /* schema.json in Resources */,
 				915E5CA220E0A25E001967A8 /* Transfer.storyboard in Resources */,
 				91392ED420E6E15E006FCE4B /* WalletAddress.graphql in Resources */,
 				91AE11CD20B3E22200C0A878 /* Graphik-Light.ttf in Resources */,
@@ -520,7 +521,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swiftAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swiftAPOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift\n";
 		};
 		C30520CB6DB524F8F04E6084 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -1,0 +1,33 @@
+query Orders($status: OrderStatus) {
+    currentUser {
+        orders(status: $status, last: 30) {
+            edges {
+                node {
+                    status
+                    createdAt
+                    side
+                    cryptocurrency
+                    coinAmount
+                    settled
+                    buycoinsPrice {
+                        buyPricePerCoin
+                        sellPricePerCoin
+                    }
+                    payment {
+                        amount
+                        direction
+                        reference
+                    }
+                    buyTransaction {
+                        amount
+                        direction
+                    }
+                    sellTransaction {
+                        amount
+                        direction
+                    }
+                }
+            }
+        }
+    }
+}
